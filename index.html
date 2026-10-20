@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Observability News — Daily observability digest</title>
-  <meta name="description" content="A free daily digest with announcements and releases from observability tools: Dynatrace, Grafana, Datadog, Elastic, Prometheus, and OpenTelemetry.">
+  <title>Observability News — Announcements and releases, curated daily</title>
+  <meta name="description" content="Product announcements and releases from observability tools — starting with Prometheus and OpenTelemetry — collected daily from official feeds. No noise, no promotional content.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
@@ -61,6 +61,7 @@
       background: var(--accent);
       box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
     }
+    .nav-links { display: flex; gap: 24px; }
     .nav-link { font-size: 15px; color: var(--ink); text-decoration: none; font-weight: 500; }
     .nav-link:hover { color: var(--accent); }
 
@@ -92,7 +93,7 @@
     .btn-primary { background: var(--accent); color: #ffffff; }
     .btn-ghost { border-color: var(--line); background: var(--surface); color: var(--ink); }
 
-    /* Email preview card */
+    /* Sample digest card */
     .preview-card {
       background: var(--surface); border: 1px solid var(--line);
       border-radius: var(--radius); overflow: hidden;
@@ -118,59 +119,41 @@
       padding: 2px 10px; border-radius: 999px;
     }
 
-    /* Features */
-    .features {
-      padding: 8px 0 56px;
+    /* Sections */
+    .section { padding: 0 0 64px; }
+    .section-title {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 28px; margin: 0 0 6px; font-weight: 600;
+    }
+    .section-sub { margin: 0 0 24px; color: var(--muted); font-size: 15px; }
+
+    /* Feature cards */
+    .feature-grid {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
     }
     .feature { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
     .feature h3 { margin: 0 0 8px; font-size: 17px; }
     .feature p { margin: 0; color: var(--muted); font-size: 15px; }
 
-    /* Tools coverage */
-    .tools { padding: 0 0 64px; }
-    .tools h2 { font-family: 'Newsreader', Georgia, serif; font-size: 28px; margin: 0 0 6px; font-weight: 600; }
-    .tools p { margin: 0 0 20px; color: var(--muted); font-size: 15px; }
+    /* Source coverage */
     .badges { display: flex; flex-wrap: wrap; gap: 10px; }
     .badge {
       border: 1px solid var(--line); background: var(--surface);
       padding: 8px 16px; border-radius: 999px;
       font-size: 14px; font-weight: 500;
     }
+    .badge-note { margin: 16px 0 0; font-size: 14px; color: var(--muted); }
 
-    /* Subscribe */
-    .subscribe { padding: 0 0 72px; }
-    .subscribe-inner {
+    /* Next milestone (email digest) */
+    .next-inner {
       background: #0f172a; color: #f1f5f9;
       border-radius: 24px; padding: 48px;
       max-width: 720px; margin: 0 auto;
     }
-    .subscribe h2 { font-family: 'Newsreader', Georgia, serif; font-size: 30px; margin: 0 0 8px; font-weight: 600; }
-    .subscribe .sub { color: #94a3b8; margin: 0 0 28px; font-size: 15px; }
-    .field label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px; }
-    input[type="email"] {
-      width: 100%; padding: 12px 14px; font-size: 16px;
-      border-radius: 10px; border: 1px solid #334155;
-      background: #1e293b; color: #f1f5f9;
-    }
-    input[type="email"]::placeholder { color: #64748b; }
-    fieldset { border: 1px solid #334155; border-radius: 12px; padding: 16px; margin: 20px 0 0; }
-    legend {
-      padding: 0 8px; font-size: 12px; font-weight: 600;
-      text-transform: uppercase; letter-spacing: 0.08em; color: #94a3b8;
-    }
-    .option { display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; font-size: 15px; cursor: pointer; }
-    .tool-picker {
-      display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;
-      margin-top: 8px; padding: 14px;
-      background: #1e293b; border-radius: 10px;
-    }
-    .tool-picker label { font-size: 14px; display: flex; gap: 8px; align-items: center; cursor: pointer; }
-    .consent { font-size: 13px; color: #94a3b8; margin: 16px 0 20px; }
-    .btn-block { width: 100%; padding: 14px; font-size: 16px; border: none; }
-    .form-status { margin: 14px 0 0; font-size: 14px; }
-    .form-status.error { color: #fca5a5; }
-    .form-status.info { color: #e9c46a; }
+    .next h2 { font-family: 'Newsreader', Georgia, serif; font-size: 30px; margin: 0 0 8px; font-weight: 600; }
+    .next .sub { color: #94a3b8; margin: 0 0 28px; font-size: 15px; }
+    .next-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-dark-ghost { border-color: #334155; background: #1e293b; color: #f1f5f9; }
 
     /* Footer */
     footer {
@@ -182,9 +165,8 @@
 
     @media (max-width: 880px) {
       .hero { grid-template-columns: 1fr; padding: 48px 0 40px; }
-      .features { grid-template-columns: 1fr; }
-      .subscribe-inner { padding: 32px 20px; }
-      .tool-picker { grid-template-columns: 1fr; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .next-inner { padding: 32px 20px; }
     }
   </style>
 </head>
@@ -193,7 +175,11 @@
   <header class="topbar">
     <div class="container topbar-inner">
       <a class="brand" href="#"><span class="brand-dot"></span>Observability News</a>
-      <a class="nav-link" href="#subscribe">Subscribe</a>
+      <nav class="nav-links">
+        <a class="nav-link" href="#how">How it works</a>
+        <a class="nav-link" href="#coverage">Coverage</a>
+        <a class="nav-link" href="https://github.com/fernandofot/observability-news">GitHub</a>
+      </nav>
     </div>
   </header>
 
@@ -201,109 +187,85 @@
     <!-- Hero -->
     <section class="container hero">
       <div>
-        <p class="eyebrow">Daily digest · Free</p>
-        <h1>Observability news, in your inbox every day.</h1>
+        <p class="eyebrow">Curated daily · From official feeds</p>
+        <h1>Observability news, minus the noise.</h1>
         <p class="lede">
-          Announcements and releases from the leading tools, curated daily and noise-free.
-          Get everything in one digest — or only the tools you choose.
+          Product announcements and releases from official observability sources —
+          project blogs and release feeds — collected every day. Starting with
+          Prometheus and OpenTelemetry. No duplicates, no promotional content.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#subscribe">Subscribe</a>
-          <a class="btn btn-ghost" href="#tools">See tools</a>
+          <a class="btn btn-primary" href="https://github.com/fernandofot/observability-news">Follow on GitHub</a>
+          <a class="btn btn-ghost" href="#coverage">Current coverage</a>
         </div>
       </div>
 
       <!-- Illustrative preview of the digest format -->
-      <aside class="preview-card" aria-label="Example of the email format">
+      <aside class="preview-card" aria-label="Illustrative example of the digest format">
         <div class="preview-head">
           <strong>Observability News</strong>
-          <span>Today's edition</span>
+          <span>Sample edition</span>
         </div>
         <div class="preview-item">
-          <span class="tag">Dynatrace</span>
-          <h4>New product launch</h4>
-          <p>A short summary of what changed and why it matters, with a link to the official source.</p>
+          <span class="tag">Prometheus</span>
+          <h4>New release</h4>
+          <p>Version number, key changes, and a link to the official release notes.</p>
         </div>
         <div class="preview-item">
           <span class="tag">OpenTelemetry</span>
-          <h4>New project release</h4>
-          <p>New version, key improvements, and a link to the release notes.</p>
+          <h4>From the project blog</h4>
+          <p>A product announcement, summarized, with a link to the original post.</p>
         </div>
-        <div class="preview-note">Illustrative example of the email format.</div>
+        <div class="preview-note">Illustrative example of the digest format.</div>
       </aside>
     </section>
 
-    <!-- Features -->
-    <section class="container features">
-      <div class="feature">
-        <h3>Announcements and releases</h3>
-        <p>Only news confirmed from official sources: releases, changelogs, and vendor blogs.</p>
-      </div>
-      <div class="feature">
-        <h3>Daily curation</h3>
-        <p>A short summary for each item with a link to the original source. No duplicates, no promotional content.</p>
-      </div>
-      <div class="feature">
-        <h3>Your choice</h3>
-        <p>General digest by default, or only the tools you follow. Unsubscribe anytime.</p>
+    <!-- How it works -->
+    <section class="container section" id="how">
+      <h2 class="section-title">How it works</h2>
+      <p class="section-sub">A small, transparent pipeline — everything it does is public in the repository.</p>
+      <div class="feature-grid">
+        <div class="feature">
+          <h3>Official sources only</h3>
+          <p>Every item comes from an official RSS or Atom feed: project blogs and GitHub release feeds. Nothing is scraped and nothing is promotional.</p>
+        </div>
+        <div class="feature">
+          <h3>Collected every morning</h3>
+          <p>An automated pipeline runs daily at 08:00 UTC, deduplicates items and applies editorial filters before anything enters the registry.</p>
+        </div>
+        <div class="feature">
+          <h3>A public registry</h3>
+          <p>Every item is tracked in a public JSON registry with its source, publication date and status — so you can audit exactly why something was included or left out.</p>
+        </div>
       </div>
     </section>
 
-    <!-- Tool coverage -->
-    <section class="container tools" id="tools">
-      <h2>Initial coverage</h2>
-      <p>The tools included in the digest at launch — the list will grow.</p>
+    <!-- Current coverage -->
+    <section class="container section" id="coverage">
+      <h2 class="section-title">What we cover today</h2>
+      <p class="section-sub">Coverage starts small and honest: every item comes from one of four official feeds across two ecosystems.</p>
       <div class="badges">
-        <span class="badge">Dynatrace</span>
-        <span class="badge">Grafana</span>
-        <span class="badge">Datadog</span>
-        <span class="badge">Elastic</span>
-        <span class="badge">Prometheus</span>
-        <span class="badge">OpenTelemetry</span>
+        <span class="badge">Prometheus Blog</span>
+        <span class="badge">Prometheus Releases</span>
+        <span class="badge">OpenTelemetry Blog</span>
+        <span class="badge">OpenTelemetry Collector Releases</span>
       </div>
+      <p class="badge-note">More tools and ecosystems will be added as the project grows.</p>
     </section>
 
-    <!-- Subscribe form -->
-    <section class="container subscribe" id="subscribe">
-      <div class="subscribe-inner">
-        <h2>Subscribe to the digest</h2>
-        <p class="sub">Leave your email and choose how you want to receive the news.</p>
-
-        <form id="subscribe-form" novalidate>
-          <div class="field">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email">
-          </div>
-
-          <fieldset>
-            <legend>How do you want to receive it?</legend>
-            <label class="option">
-              <input type="radio" name="mode" value="general" checked>
-              General digest — all tools
-            </label>
-            <label class="option">
-              <input type="radio" name="mode" value="tools">
-              Pick tools
-            </label>
-
-            <div id="tool-picker" class="tool-picker" hidden>
-              <label><input type="checkbox" name="tools" value="dynatrace"> Dynatrace</label>
-              <label><input type="checkbox" name="tools" value="grafana"> Grafana</label>
-              <label><input type="checkbox" name="tools" value="datadog"> Datadog</label>
-              <label><input type="checkbox" name="tools" value="elastic"> Elastic</label>
-              <label><input type="checkbox" name="tools" value="prometheus"> Prometheus</label>
-              <label><input type="checkbox" name="tools" value="opentelemetry"> OpenTelemetry</label>
-            </div>
-          </fieldset>
-
-          <p class="consent">
-            By subscribing, you agree to receive the observability digest by email.
-            You can unsubscribe at any time, and your email address will not be shared.
-          </p>
-
-          <button type="submit" class="btn btn-primary btn-block">Subscribe</button>
-          <p id="form-status" class="form-status" role="status" hidden></p>
-        </form>
+    <!-- Next milestone -->
+    <section class="container section next" id="email">
+      <div class="next-inner">
+        <h2>The email digest is coming later</h2>
+        <p class="sub">
+          Subscriptions haven't opened yet. The daily collection pipeline is already running;
+          email delivery is the next milestone. Until then, this site collects nothing —
+          no email addresses, no tracking, no sign-up.
+        </p>
+        <div class="next-actions">
+          <a class="btn btn-primary" href="https://github.com/fernandofot/observability-news">Follow the project on GitHub</a>
+          <a class="btn btn-dark-ghost" href="https://github.com/fernandofot/observability-news/blob/main/data/news-registry.json">Browse the news registry</a>
+        </div>
       </div>
     </section>
   </main>
@@ -314,55 +276,6 @@
       <a href="https://github.com/fernandofot/observability-news">GitHub</a>
     </div>
   </footer>
-
-  <script>
-    // Form behaviour: local validation only. The submission endpoint
-    // (free form-backends service) will be plugged in on the next step.
-    const form = document.getElementById('subscribe-form');
-    const modeRadios = form.querySelectorAll('input[name="mode"]');
-    const toolPicker = document.getElementById('tool-picker');
-    const statusEl = document.getElementById('form-status');
-
-    // Show the tool checkboxes only when "Pick tools" is selected.
-    function syncMode() {
-      const selected = form.querySelector('input[name="mode"]:checked');
-      toolPicker.hidden = selected.value !== 'tools';
-    }
-    modeRadios.forEach(r => r.addEventListener('change', syncMode));
-
-    function showStatus(message, type) {
-      statusEl.textContent = message;
-      statusEl.className = 'form-status ' + type;
-      statusEl.hidden = false;
-    }
-
-    form.addEventListener('submit', (event) => {
-      event.preventDefault();
-
-      const email = form.email.value.trim();
-      if (!email || !form.email.checkValidity()) {
-        showStatus('Please enter a valid email address.', 'error');
-        form.email.focus();
-        return;
-      }
-
-      if (form.mode.value === 'tools') {
-        const anyTool = form.querySelectorAll('input[name="tools"]:checked').length > 0;
-        if (!anyTool) {
-          showStatus('Pick at least one tool.', 'error');
-          return;
-        }
-      }
-
-      // TODO: send (email + mode + tools) to the free submission service here.
-      showStatus(
-        'Submission is not active yet: the form is not connected to a submission service, so no email was stored.',
-        'info'
-      );
-      form.reset();
-      syncMode();
-    });
-  </script>
 
 </body>
 </html>
