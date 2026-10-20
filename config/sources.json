@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "id": "prometheus_blog",
+      "tool": "Prometheus",
+      "type": "blog",
+      "format": "rss",
+      "url": "https://prometheus.io/blog/feed.xml",
+      "enabled": true
+    },
+    {
+      "id": "prometheus_releases",
+      "tool": "Prometheus",
+      "type": "releases",
+      "format": "atom",
+      "url": "https://github.com/prometheus/prometheus/releases.atom",
+      "enabled": true
+    },
+    {
+      "id": "opentelemetry_blog",
+      "tool": "OpenTelemetry",
+      "type": "blog",
+      "format": "rss",
+      "url": "https://opentelemetry.io/blog/index.xml",
+      "enabled": true
+    },
+    {
+      "id": "opentelemetry_collector_releases",
+      "tool": "OpenTelemetry Collector",
+      "type": "releases",
+      "format": "atom",
+      "url": "https://github.com/open-telemetry/opentelemetry-collector-releases/releases.atom",
+      "enabled": true
+    }
+  ]
+}
