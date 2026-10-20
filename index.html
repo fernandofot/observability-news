@@ -93,7 +93,7 @@
     .btn-primary { background: var(--accent); color: #ffffff; }
     .btn-ghost { border-color: var(--line); background: var(--surface); color: var(--ink); }
 
-    /* Sample digest card */
+    /* Latest news card (filled automatically from the registry) */
     .preview-card {
       background: var(--surface); border: 1px solid var(--line);
       border-radius: var(--radius); overflow: hidden;
@@ -108,11 +108,14 @@
     .preview-item { padding: 16px 20px; border-bottom: 1px dashed var(--line); }
     .preview-item:last-of-type { border-bottom: none; }
     .preview-item h4 { margin: 8px 0 4px; font-size: 15px; }
+    .preview-item h4 a { color: inherit; text-decoration: none; }
+    .preview-item h4 a:hover { color: var(--accent); }
     .preview-item p { margin: 0; font-size: 14px; color: var(--muted); }
     .preview-note {
       padding: 12px 20px; font-size: 13px; color: var(--muted);
       background: var(--paper); border-top: 1px solid var(--line);
     }
+    .preview-note a { color: var(--accent); font-weight: 600; text-decoration: none; }
     .tag {
       display: inline-block; font-size: 12px; font-weight: 600;
       color: var(--accent); background: rgba(37, 99, 235, 0.08);
@@ -176,9 +179,9 @@
     <div class="container topbar-inner">
       <a class="brand" href="#"><span class="brand-dot"></span>Observability News</a>
       <nav class="nav-links">
+        <a class="nav-link" href="news.html">News</a>
         <a class="nav-link" href="#how">How it works</a>
         <a class="nav-link" href="#coverage">Coverage</a>
-        <a class="nav-link" href="https://github.com/fernandofot/observability-news">GitHub</a>
       </nav>
     </div>
   </header>
@@ -195,28 +198,30 @@
           Prometheus and OpenTelemetry. No duplicates, no promotional content.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="https://github.com/fernandofot/observability-news">Follow on GitHub</a>
+          <a class="btn btn-primary" href="news.html">Read the latest news</a>
           <a class="btn btn-ghost" href="#coverage">Current coverage</a>
         </div>
       </div>
 
-      <!-- Illustrative preview of the digest format -->
-      <aside class="preview-card" aria-label="Illustrative example of the digest format">
+      <!-- Latest items, injected automatically from the registry -->
+      <aside class="preview-card" aria-label="Latest collected news">
         <div class="preview-head">
           <strong>Observability News</strong>
-          <span>Sample edition</span>
+          <span>Updated <!-- generated:updated:start -->October 20, 2026<!-- generated:updated:end --></span>
+        </div>
+        <!-- generated:preview:start -->        <div class="preview-item">
+          <span class="tag">OpenTelemetry</span>
+          <h4><a href="https://opentelemetry.io/blog/2026/hostmetrics-process-scraper-rc" target="_blank" rel="noopener">Versioned metrics: Shipping the first Release Candidate metrics in hostmetrics</a></h4>
         </div>
         <div class="preview-item">
           <span class="tag">Prometheus</span>
-          <h4>New release</h4>
-          <p>Version number, key changes, and a link to the official release notes.</p>
+          <h4><a href="https://github.com/prometheus/prometheus/releases/tag/v3.13.4" target="_blank" rel="noopener">3.13.4 / 2026-09-29</a></h4>
         </div>
         <div class="preview-item">
-          <span class="tag">OpenTelemetry</span>
-          <h4>From the project blog</h4>
-          <p>A product announcement, summarized, with a link to the original post.</p>
-        </div>
-        <div class="preview-note">Illustrative example of the digest format.</div>
+          <span class="tag">Prometheus</span>
+          <h4><a href="https://github.com/prometheus/prometheus/releases/tag/v0.313.4" target="_blank" rel="noopener">v0.313.4</a></h4>
+        </div><!-- generated:preview:end -->
+        <div class="preview-note"><!-- generated:preview-note:start -->The latest 3 of 16 items — <a href="news.html">browse all the news</a><!-- generated:preview-note:end --></div>
       </aside>
     </section>
 
@@ -231,11 +236,11 @@
         </div>
         <div class="feature">
           <h3>Collected every morning</h3>
-          <p>An automated pipeline runs daily at 08:00 UTC, deduplicates items and applies editorial filters before anything enters the registry.</p>
+          <p>An automated pipeline runs daily at 08:00 UTC, deduplicates items and applies editorial filters before anything is published.</p>
         </div>
         <div class="feature">
-          <h3>A public registry</h3>
-          <p>Every item is tracked in a public JSON registry with its source, publication date and status — so you can audit exactly why something was included or left out.</p>
+          <h3>Every item linked</h3>
+          <p>Each entry links straight to the official source, and the full history is tracked in a public JSON registry anyone can audit.</p>
         </div>
       </div>
     </section>
@@ -250,7 +255,7 @@
         <span class="badge">OpenTelemetry Blog</span>
         <span class="badge">OpenTelemetry Collector Releases</span>
       </div>
-      <p class="badge-note">More tools and ecosystems will be added as the project grows.</p>
+      <p class="badge-note"><!-- generated:stats:start -->Tracking 16 announcements and releases · updated daily at 08:00 UTC · more sources coming.<!-- generated:stats:end --></p>
     </section>
 
     <!-- Next milestone -->
@@ -263,7 +268,7 @@
           no email addresses, no tracking, no sign-up.
         </p>
         <div class="next-actions">
-          <a class="btn btn-primary" href="https://github.com/fernandofot/observability-news">Follow the project on GitHub</a>
+          <a class="btn btn-primary" href="news.html">Read the latest news</a>
           <a class="btn btn-dark-ghost" href="https://github.com/fernandofot/observability-news/blob/main/data/news-registry.json">Browse the news registry</a>
         </div>
       </div>

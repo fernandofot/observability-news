@@ -1,8 +1,11 @@
-"""Build news.html from the item registry.
+"""Build news.html and refresh index.html from the item registry.
 
 Reads data/news-registry.json, keeps eligible items and renders them into
-a static news.html page using the site's design system. Run after
-collect.py (locally or in GitHub Actions). This script never sends emails.
+a static news.html page using the site's design system. It also injects
+the latest headlines and live counts into index.html between
+<!-- generated:... --> markers, so the landing page always shows real
+data. Run after collect.py (locally or in GitHub Actions). This script
+never sends emails.
 
 Usage:
     python3 scripts/build_site.py
@@ -10,12 +13,15 @@ Usage:
 
 import html
 import json
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 
 REGISTRY_PATH = Path("data/news-registry.json")
-OUTPUT_PATH = Path("news.html")
+NEWS_PATH = Path("news.html")
+INDEX_PATH = Path("index.html")
 MAX_ITEMS = 100
+HERO_ITEMS = 3
 
 SOURCE_LABELS = {
     "prometheus_blog": "Prometheus Blog",
@@ -142,6 +148,86 @@ def render_item(item):
     )
 
 
+def inject(page, name, replacement):
+    """Replace the content between the generated markers for `name`,
+    keeping the markers themselves in place.
+
+    Matching is whitespace-tolerant: copy-paste can introduce extra
+    spaces or non-breaking spaces that look identical but break an
+    exact string comparison, so we match with a regex instead.
+    """
+    start_re = re.compile(
+        r"<!--\s*generated\s*:\s*" + re.escape(name) + r"\s*:\s*start\s*-->"
+    )
+    end_re = re.compile(
+        r"<!--\s*generated\s*:\s*" + re.escape(name) + r"\s*:\s*end\s*-->"
+    )
+    start_match = start_re.search(page)
+    if not start_match:
+        print(f"Warning: markers for '{name}' not found in index.html, skipped.")
+        return page
+    end_match = end_re.search(page, start_match.end())
+    if not end_match:
+        print(f"Warning: end marker for '{name}' not found in index.html, skipped.")
+        return page
+    return page[: start_match.end()] + replacement + page[end_match.start() :]
+
+
+def render_hero_item(item):
+    tool = html.escape(item.get("tool") or "News")
+    title = html.escape(item.get("title") or "Untitled")
+    url = html.escape(item.get("canonical_url") or "#", quote=True)
+    return (
+        '        <div class="preview-item">\n'
+        f'          <span class="tag">{tool}</span>\n'
+        f'          <h4><a href="{url}" target="_blank" rel="noopener">{title}</a></h4>\n'
+        "        </div>"
+    )
+
+
+def update_index(items):
+    if not INDEX_PATH.exists():
+        print("index.html not found, skipped.")
+        return
+
+    page = INDEX_PATH.read_text(encoding="utf-8")
+    total = len(items)
+    hero = items[:HERO_ITEMS]
+
+    updated = datetime.now(timezone.utc).strftime("%B %d, %Y")
+    page = inject(page, "updated", updated)
+
+    if hero:
+        preview = "\n".join(render_hero_item(item) for item in hero)
+    else:
+        preview = (
+            '        <div class="preview-item">\n'
+            '          <span class="tag">Prometheus</span>\n'
+            '          <h4>No items yet</h4>\n'
+            '          <p>The first collection runs daily at 08:00 UTC.</p>\n'
+            "        </div>"
+        )
+    page = inject(page, "preview", preview)
+
+    if hero:
+        note = (
+            f'The latest {len(hero)} of {total} items — '
+            '<a href="news.html">browse all the news</a>'
+        )
+    else:
+        note = "No items collected yet — check back after the next run."
+    page = inject(page, "preview-note", note)
+
+    page = inject(
+        page,
+        "stats",
+        f"Tracking {total} announcements and releases · updated daily at 08:00 UTC · more sources coming.",
+    )
+
+    INDEX_PATH.write_text(page, encoding="utf-8")
+    print(f"index.html updated: hero shows {len(hero)} latest items of {total}.")
+
+
 def main():
     registry = json.loads(REGISTRY_PATH.read_text(encoding="utf-8"))
     items = [i for i in registry.get("items", []) if i.get("status") == "eligible"]
@@ -207,8 +293,10 @@ def main():
         '</html>\n'
     )
 
-    OUTPUT_PATH.write_text(head + stats_html + items_html + "\n" + tail, encoding="utf-8")
+    NEWS_PATH.write_text(head + stats_html + items_html + "\n" + tail, encoding="utf-8")
     print(f"news.html written: {total} eligible items, {len(shown)} shown.")
+
+    update_index(items)
 
 
 if __name__ == "__main__":
