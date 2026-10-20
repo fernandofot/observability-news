@@ -211,11 +211,11 @@ def update_index(items):
 
     if hero:
         note = (
-            f'The latest {len(hero)} of {total} items — '
+            f'The latest {len(hero)} of {total} items · '
             '<a href="news.html">browse all the news</a>'
         )
     else:
-        note = "No items collected yet — check back after the next run."
+        note = "No items collected yet · check back after the next run."
     page = inject(page, "preview-note", note)
 
     page = inject(
@@ -256,7 +256,7 @@ def main():
         '<head>\n'
         '  <meta charset="UTF-8">\n'
         '  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n'
-        '  <title>Observability News — Latest announcements and releases</title>\n'
+        '  <title>Observability News · Latest announcements and releases</title>\n'
         '  <meta name="description" content="Product announcements and releases from Prometheus and OpenTelemetry, collected daily from official feeds.">\n'
         '  <link rel="preconnect" href="https://fonts.googleapis.com">\n'
         '  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
