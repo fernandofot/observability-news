@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="680" viewBox="0 0 680 340" role="img" aria-label="Observability news collection workflow" xmlns:xlink="http://www.w3.org/1999/xlink" height="340"><style>
+    :root { --color-text-primary: #E5E7EB;
+    --color-text-secondary: #9CA3AF;
+    --color-text-tertiary: #6B7280;
+    --color-text-info: #60A5FA;
+    --color-text-success: #34D399;
+    --color-text-warning: #FBBF24;
+    --color-text-danger: #F87171;
+    --color-background-primary: rgb(33,33,33);
+    --color-background-secondary: rgb(48,48,48);
+    --color-background-tertiary: rgb(26,25,25);
+    --color-border-tertiary: rgba(255,255,255,0.15);
+    --color-border-secondary: rgba(255,255,255,0.3);
+    --ramp-purple-bg: #3C3489;
+    --ramp-purple-stroke: #AFA9EC;
+    --ramp-purple-text: #CECBF6;
+    --ramp-purple-sub: #AFA9EC;
+    --ramp-teal-bg: #085041;
+    --ramp-teal-stroke: #5DCAA5;
+    --ramp-teal-text: #9FE1CB;
+    --ramp-teal-sub: #5DCAA5;
+    --ramp-coral-bg: #712B13;
+    --ramp-coral-stroke: #F0997B;
+    --ramp-coral-text: #F5C4B3;
+    --ramp-coral-sub: #F0997B;
+    --ramp-gray-bg: #444441;
+    --ramp-gray-stroke: #B4B2A9;
+    --ramp-gray-text: #D3D1C7;
+    --ramp-gray-sub: #B4B2A9;
+    --ramp-blue-bg: #0C447C;
+    --ramp-blue-stroke: #85B7EB;
+    --ramp-blue-text: #B5D4F4;
+    --ramp-blue-sub: #85B7EB;
+    --ramp-amber-bg: #633806;
+    --ramp-amber-stroke: #EF9F27;
+    --ramp-amber-text: #FAC775;
+    --ramp-amber-sub: #EF9F27;
+      --font-sans: system-ui, -apple-system, sans-serif;
+      --font-mono: 'SF Mono', Menlo, monospace;
+      --border-radius-md: 8px; --border-radius-lg: 12px;
+    }
+    .t { font: 400 14px var(--font-sans); fill: var(--color-text-primary); }
+    .ts { font: 400 12px var(--font-sans); fill: var(--color-text-secondary); }
+    .th { font: 500 14px var(--font-sans); fill: var(--color-text-primary); }
+    .box { fill: var(--color-background-secondary); stroke: var(--color-border-tertiary); }
+    .node { cursor: pointer; } .node:hover { opacity: 0.85; }
+    .arr { stroke: var(--color-border-secondary); stroke-width: 1.5; fill: none; }
+    .leader { stroke: var(--color-text-tertiary); stroke-width: 0.5; stroke-dasharray: 3 2; fill: none; }
+    .c-purple &gt; rect, .c-purple &gt; circle, .c-purple &gt; ellipse { fill: var(--ramp-purple-bg); stroke: var(--ramp-purple-stroke); }
+    .c-purple &gt; .th { fill: var(--ramp-purple-text); } .c-purple &gt; .ts { fill: var(--ramp-purple-sub); }
+    .c-teal &gt; rect, .c-teal &gt; circle, .c-teal &gt; ellipse { fill: var(--ramp-teal-bg); stroke: var(--ramp-teal-stroke); }
+    .c-teal &gt; .th { fill: var(--ramp-teal-text); } .c-teal &gt; .ts { fill: var(--ramp-teal-sub); }
+    .c-coral &gt; rect, .c-coral &gt; circle, .c-coral &gt; ellipse { fill: var(--ramp-coral-bg); stroke: var(--ramp-coral-stroke); }
+    .c-coral &gt; .th { fill: var(--ramp-coral-text); } .c-coral &gt; .ts { fill: var(--ramp-coral-sub); }
+    .c-gray &gt; rect, .c-gray &gt; circle, .c-gray &gt; ellipse { fill: var(--ramp-gray-bg); stroke: var(--ramp-gray-stroke); }
+    .c-gray &gt; .th { fill: var(--ramp-gray-text); } .c-gray &gt; .ts { fill: var(--ramp-gray-sub); }
+    .c-blue &gt; rect, .c-blue &gt; circle, .c-blue &gt; ellipse { fill: var(--ramp-blue-bg); stroke: var(--ramp-blue-stroke); }
+    .c-blue &gt; .th { fill: var(--ramp-blue-text); } .c-blue &gt; .ts { fill: var(--ramp-blue-sub); }
+    .c-amber &gt; rect, .c-amber &gt; circle, .c-amber &gt; ellipse { fill: var(--ramp-amber-bg); stroke: var(--ramp-amber-stroke); }
+    .c-amber &gt; .th { fill: var(--ramp-amber-text); } .c-amber &gt; .ts { fill: var(--ramp-amber-sub); }
+    button { background: transparent; border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-md); padding: 6px 14px; font-size: 13px; color: var(--color-text-primary); cursor: pointer; font-family: var(--font-sans); }
+    button:hover { background: var(--color-background-secondary); }
+    input[type="range"] { -webkit-appearance: none; height: 4px; background: var(--color-border-tertiary); border-radius: 2px; }
+    input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--color-background-primary); border: 0.5px solid var(--color-border-secondary); cursor: pointer; }
+    select { appearance: none; -webkit-appearance: none; background: var(--color-background-secondary); border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-md); padding: 6px 28px 6px 10px; font-size: 13px; color: var(--color-text-primary); font-family: var(--font-sans); cursor: pointer; outline: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%239CA3AF' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; }
+    select:hover { border-color: var(--color-border-secondary); background-color: var(--color-background-tertiary); }
+    * { box-sizing: border-box; margin: 0; font-family: var(--font-sans); }
+    html, body { overflow: hidden; min-height: 0 !important; height: auto !important; }
+    body { color: var(--color-text-primary); line-height: 1.5; }
+:root{--color-text-primary:#E5E7EB;--color-text-secondary:#9CA3AF;--color-text-tertiary:#6B7280;--color-text-info:#60A5FA;--color-text-success:#34D399;--color-text-warning:#FBBF24;--color-text-danger:#F87171;--color-background-primary:rgb(33,33,33);--color-background-secondary:rgb(48,48,48);--color-background-tertiary:rgb(26,25,25);--color-border-tertiary:rgba(255,255,255,0.15);--color-border-secondary:rgba(255,255,255,0.3);--font-sans:system-ui, -apple-system, sans-serif;--font-mono:"SF Mono", Menlo, monospace;--border-radius-md:8px;--border-radius-lg:12px;--ramp-purple-bg:#3C3489;--ramp-purple-stroke:#AFA9EC;--ramp-purple-text:#CECBF6;--ramp-purple-sub:#AFA9EC;--ramp-teal-bg:#085041;--ramp-teal-stroke:#5DCAA5;--ramp-teal-text:#9FE1CB;--ramp-teal-sub:#5DCAA5;--ramp-coral-bg:#712B13;--ramp-coral-stroke:#F0997B;--ramp-coral-text:#F5C4B3;--ramp-coral-sub:#F0997B;--ramp-gray-bg:#444441;--ramp-gray-stroke:#B4B2A9;--ramp-gray-text:#D3D1C7;--ramp-gray-sub:#B4B2A9;--ramp-blue-bg:#0C447C;--ramp-blue-stroke:#85B7EB;--ramp-blue-text:#B5D4F4;--ramp-blue-sub:#85B7EB;--ramp-amber-bg:#633806;--ramp-amber-stroke:#EF9F27;--ramp-amber-text:#FAC775;--ramp-amber-sub:#EF9F27;}</style><rect x="0" y="0" width="680" height="340" fill="rgb(33, 33, 33)"/>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L6,3 z" fill="#2563eb"/>
+    </marker>
+  </defs>
+  <text x="340" y="30" text-anchor="middle" font-size="18" font-weight="600" fill="#0f172a" font-family="sans-serif">Daily observability news collection</text>
+
+  <g>
+    <rect x="28" y="78" width="112" height="86" rx="8" fill="#eff6ff" stroke="#93c5fd"/>
+    <text x="84" y="106" text-anchor="middle" font-size="13" font-weight="600" fill="#0f172a" font-family="sans-serif">Official feeds</text>
+    <text x="84" y="128" text-anchor="middle" font-size="11" fill="#475569" font-family="sans-serif">RSS / Atom</text>
+    <text x="84" y="145" text-anchor="middle" font-size="11" fill="#475569" font-family="sans-serif">Blogs + releases</text>
+  </g>
+  <path d="M141 121 H158" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="164" y="78" width="112" height="86" rx="8" fill="#eff6ff" stroke="#93c5fd"/>
+    <text x="220" y="106" text-anchor="middle" font-size="13" font-weight="600" fill="#0f172a" font-family="sans-serif">Fetch &amp;</text>
+    <text x="220" y="123" text-anchor="middle" font-size="13" font-weight="600" fill="#0f172a" font-family="sans-serif">normalize</text>
+    <text x="220" y="146" text-anchor="middle" font-size="11" fill="#475569" font-family="sans-serif">One common format</text>
+  </g>
+  <path d="M277 121 H294" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="300" y="78" width="112" height="86" rx="8" fill="#eff6ff" stroke="#93c5fd"/>
+    <text x="356" y="106" text-anchor="middle" font-size="13" font-weight="600" fill="#0f172a" font-family="sans-serif">Filter</text>
+    <text x="356" y="128" text-anchor="middle" font-size="11" fill="#475569" font-family="sans-serif">Official announcements</text>
+    <text x="356" y="145" text-anchor="middle" font-size="11" fill="#475569" font-family="sans-serif">Stable releases only</text>
+  </g>
+  <path d="M413 121 H430" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="436" y="78" width="112" height="86" rx="8" fill="#eff6ff" stroke="#93c5fd"/>
+    <text x="492" y="106" text-anchor="middle" font-size="13" font-weight="600" fill="#0f172a" font-family="sans-serif">Deduplicate</text>
+    <text x="492" y="128" text-anchor="middle" font-size="11" fill="#475569" font-family="sans-serif">Canonical item key</text>
+    <text x="492" y="145" text-anchor="middle" font-size="11" fill="#475569" font-family="sans-serif">Check delivery log</text>
+  </g>
+  <path d="M549 121 H566" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="572" y="78" width="88" height="86" rx="8" fill="#dbeafe" stroke="#60a5fa"/>
+    <text x="616" y="106" text-anchor="middle" font-size="13" font-weight="600" fill="#0f172a" font-family="sans-serif">Daily</text>
+    <text x="616" y="123" text-anchor="middle" font-size="13" font-weight="600" fill="#0f172a" font-family="sans-serif">digest</text>
+    <text x="616" y="146" text-anchor="middle" font-size="11" fill="#475569" font-family="sans-serif">Email in English</text>
+  </g>
+
+  <rect x="87" y="210" width="506" height="78" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="340" y="235" text-anchor="middle" font-size="13" font-weight="600" fill="#0f172a" font-family="sans-serif">Persistent item registry</text>
+  <text x="340" y="256" text-anchor="middle" font-size="12" fill="#475569" font-family="sans-serif">Seen → eligible → sent (or excluded with reason)</text>
+  <text x="340" y="275" text-anchor="middle" font-size="11" fill="#64748b" font-family="sans-serif">Used to recover after a failed run and avoid sending the same item again</text>
+  <path d="M492 165 V191 H510 V207" fill="none" stroke="#2563eb" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <path d="M510 207 V191 H616 V167" fill="none" stroke="#2563eb" stroke-width="1.2" marker-end="url(#arrow)"/>
+</svg>

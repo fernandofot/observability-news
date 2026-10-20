@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="680" viewBox="0 0 680 380" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="380"><style>
+    :root { --color-text-primary: #E5E7EB;
+    --color-text-secondary: #9CA3AF;
+    --color-text-tertiary: #6B7280;
+    --color-text-info: #60A5FA;
+    --color-text-success: #34D399;
+    --color-text-warning: #FBBF24;
+    --color-text-danger: #F87171;
+    --color-background-primary: rgb(33,33,33);
+    --color-background-secondary: rgb(48,48,48);
+    --color-background-tertiary: rgb(26,25,25);
+    --color-border-tertiary: rgba(255,255,255,0.15);
+    --color-border-secondary: rgba(255,255,255,0.3);
+    --ramp-purple-bg: #3C3489;
+    --ramp-purple-stroke: #AFA9EC;
+    --ramp-purple-text: #CECBF6;
+    --ramp-purple-sub: #AFA9EC;
+    --ramp-teal-bg: #085041;
+    --ramp-teal-stroke: #5DCAA5;
+    --ramp-teal-text: #9FE1CB;
+    --ramp-teal-sub: #5DCAA5;
+    --ramp-coral-bg: #712B13;
+    --ramp-coral-stroke: #F0997B;
+    --ramp-coral-text: #F5C4B3;
+    --ramp-coral-sub: #F0997B;
+    --ramp-gray-bg: #444441;
+    --ramp-gray-stroke: #B4B2A9;
+    --ramp-gray-text: #D3D1C7;
+    --ramp-gray-sub: #B4B2A9;
+    --ramp-blue-bg: #0C447C;
+    --ramp-blue-stroke: #85B7EB;
+    --ramp-blue-text: #B5D4F4;
+    --ramp-blue-sub: #85B7EB;
+    --ramp-amber-bg: #633806;
+    --ramp-amber-stroke: #EF9F27;
+    --ramp-amber-text: #FAC775;
+    --ramp-amber-sub: #EF9F27;
+      --font-sans: system-ui, -apple-system, sans-serif;
+      --font-mono: 'SF Mono', Menlo, monospace;
+      --border-radius-md: 8px; --border-radius-lg: 12px;
+    }
+    .t { font: 400 14px var(--font-sans); fill: var(--color-text-primary); }
+    .ts { font: 400 12px var(--font-sans); fill: var(--color-text-secondary); }
+    .th { font: 500 14px var(--font-sans); fill: var(--color-text-primary); }
+    .box { fill: var(--color-background-secondary); stroke: var(--color-border-tertiary); }
+    .node { cursor: pointer; } .node:hover { opacity: 0.85; }
+    .arr { stroke: var(--color-border-secondary); stroke-width: 1.5; fill: none; }
+    .leader { stroke: var(--color-text-tertiary); stroke-width: 0.5; stroke-dasharray: 3 2; fill: none; }
+    .c-purple &gt; rect, .c-purple &gt; circle, .c-purple &gt; ellipse { fill: var(--ramp-purple-bg); stroke: var(--ramp-purple-stroke); }
+    .c-purple &gt; .th { fill: var(--ramp-purple-text); } .c-purple &gt; .ts { fill: var(--ramp-purple-sub); }
+    .c-teal &gt; rect, .c-teal &gt; circle, .c-teal &gt; ellipse { fill: var(--ramp-teal-bg); stroke: var(--ramp-teal-stroke); }
+    .c-teal &gt; .th { fill: var(--ramp-teal-text); } .c-teal &gt; .ts { fill: var(--ramp-teal-sub); }
+    .c-coral &gt; rect, .c-coral &gt; circle, .c-coral &gt; ellipse { fill: var(--ramp-coral-bg); stroke: var(--ramp-coral-stroke); }
+    .c-coral &gt; .th { fill: var(--ramp-coral-text); } .c-coral &gt; .ts { fill: var(--ramp-coral-sub); }
+    .c-gray &gt; rect, .c-gray &gt; circle, .c-gray &gt; ellipse { fill: var(--ramp-gray-bg); stroke: var(--ramp-gray-stroke); }
+    .c-gray &gt; .th { fill: var(--ramp-gray-text); } .c-gray &gt; .ts { fill: var(--ramp-gray-sub); }
+    .c-blue &gt; rect, .c-blue &gt; circle, .c-blue &gt; ellipse { fill: var(--ramp-blue-bg); stroke: var(--ramp-blue-stroke); }
+    .c-blue &gt; .th { fill: var(--ramp-blue-text); } .c-blue &gt; .ts { fill: var(--ramp-blue-sub); }
+    .c-amber &gt; rect, .c-amber &gt; circle, .c-amber &gt; ellipse { fill: var(--ramp-amber-bg); stroke: var(--ramp-amber-stroke); }
+    .c-amber &gt; .th { fill: var(--ramp-amber-text); } .c-amber &gt; .ts { fill: var(--ramp-amber-sub); }
+    button { background: transparent; border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-md); padding: 6px 14px; font-size: 13px; color: var(--color-text-primary); cursor: pointer; font-family: var(--font-sans); }
+    button:hover { background: var(--color-background-secondary); }
+    input[type="range"] { -webkit-appearance: none; height: 4px; background: var(--color-border-tertiary); border-radius: 2px; }
+    input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--color-background-primary); border: 0.5px solid var(--color-border-secondary); cursor: pointer; }
+    select { appearance: none; -webkit-appearance: none; background: var(--color-background-secondary); border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-md); padding: 6px 28px 6px 10px; font-size: 13px; color: var(--color-text-primary); font-family: var(--font-sans); cursor: pointer; outline: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%239CA3AF' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; }
+    select:hover { border-color: var(--color-border-secondary); background-color: var(--color-background-tertiary); }
+    * { box-sizing: border-box; margin: 0; font-family: var(--font-sans); }
+    html, body { overflow: hidden; min-height: 0 !important; height: auto !important; }
+    body { color: var(--color-text-primary); line-height: 1.5; }
+:root{--color-text-primary:#E5E7EB;--color-text-secondary:#9CA3AF;--color-text-tertiary:#6B7280;--color-text-info:#60A5FA;--color-text-success:#34D399;--color-text-warning:#FBBF24;--color-text-danger:#F87171;--color-background-primary:rgb(33,33,33);--color-background-secondary:rgb(48,48,48);--color-background-tertiary:rgb(26,25,25);--color-border-tertiary:rgba(255,255,255,0.15);--color-border-secondary:rgba(255,255,255,0.3);--font-sans:system-ui, -apple-system, sans-serif;--font-mono:"SF Mono", Menlo, monospace;--border-radius-md:8px;--border-radius-lg:12px;--ramp-purple-bg:#3C3489;--ramp-purple-stroke:#AFA9EC;--ramp-purple-text:#CECBF6;--ramp-purple-sub:#AFA9EC;--ramp-teal-bg:#085041;--ramp-teal-stroke:#5DCAA5;--ramp-teal-text:#9FE1CB;--ramp-teal-sub:#5DCAA5;--ramp-coral-bg:#712B13;--ramp-coral-stroke:#F0997B;--ramp-coral-text:#F5C4B3;--ramp-coral-sub:#F0997B;--ramp-gray-bg:#444441;--ramp-gray-stroke:#B4B2A9;--ramp-gray-text:#D3D1C7;--ramp-gray-sub:#B4B2A9;--ramp-blue-bg:#0C447C;--ramp-blue-stroke:#85B7EB;--ramp-blue-text:#B5D4F4;--ramp-blue-sub:#85B7EB;--ramp-amber-bg:#633806;--ramp-amber-stroke:#EF9F27;--ramp-amber-text:#FAC775;--ramp-amber-sub:#EF9F27;}</style><rect x="0" y="0" width="680" height="380" fill="rgb(33, 33, 33)"/>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8 z" fill="var(--color-text-tertiary)"/>
+    </marker>
+  </defs>
+  <text x="20" y="26" style="font-size:14px;font-weight:500" fill="var(--color-text-primary)">Pipeline do digest diário — custo zero</text>
+
+  <g class="c-gray">
+    <rect x="20" y="50" width="180" height="56" rx="8" class="box" stroke-width="0.5"/>
+    <text class="th" x="110" y="70" text-anchor="middle" dominant-baseline="central" fill="var(--color-text-primary)">Fontes oficiais</text>
+    <text class="ts" x="110" y="88" text-anchor="middle" dominant-baseline="central" fill="var(--color-text-secondary)">feeds RSS · releases</text>
+  </g>
+
+  <g class="c-blue">
+    <rect x="245" y="50" width="190" height="56" rx="8" class="box" stroke-width="0.5"/>
+    <text class="th" x="340" y="70" text-anchor="middle" dominant-baseline="central" fill="var(--color-text-primary)">GitHub Actions</text>
+    <text class="ts" x="340" y="88" text-anchor="middle" dominant-baseline="central" fill="var(--color-text-secondary)">cron diário · filtra 24h</text>
+  </g>
+
+  <g class="c-blue">
+    <rect x="480" y="50" width="180" height="56" rx="8" class="box" stroke-width="0.5"/>
+    <text class="th" x="570" y="70" text-anchor="middle" dominant-baseline="central" fill="var(--color-text-primary)">API de email</text>
+    <text class="ts" x="570" y="88" text-anchor="middle" dominant-baseline="central" fill="var(--color-text-secondary)">plano grátis · envia</text>
+  </g>
+
+  <g class="c-blue">
+    <rect x="480" y="170" width="180" height="56" rx="8" class="box" stroke-width="0.5"/>
+    <text class="th" x="570" y="190" text-anchor="middle" dominant-baseline="central" fill="var(--color-text-primary)">Caixa de entrada</text>
+    <text class="ts" x="570" y="208" text-anchor="middle" dominant-baseline="central" fill="var(--color-text-secondary)">dos subscritores</text>
+  </g>
+
+  <g class="c-amber">
+    <rect x="50" y="290" width="170" height="56" rx="8" class="box" stroke-width="0.5"/>
+    <text class="th" x="135" y="310" text-anchor="middle" dominant-baseline="central" fill="var(--color-text-primary)">Web3Forms</text>
+    <text class="ts" x="135" y="328" text-anchor="middle" dominant-baseline="central" fill="var(--color-text-secondary)">submissões do form</text>
+  </g>
+
+  <g class="c-amber">
+    <rect x="280" y="290" width="180" height="56" rx="8" class="box" stroke-width="0.5"/>
+    <text class="th" x="370" y="310" text-anchor="middle" dominant-baseline="central" fill="var(--color-text-primary)">subscritores.csv</text>
+    <text class="ts" x="370" y="328" text-anchor="middle" dominant-baseline="central" fill="var(--color-text-secondary)">lista no repositório</text>
+  </g>
+
+  <path d="M202 78 L240 78" fill="none" stroke="var(--color-text-tertiary)" stroke-width="0.5" marker-end="url(#arrow)"/>
+  <path d="M437 78 L475 78" fill="none" stroke="var(--color-text-tertiary)" stroke-width="0.5" marker-end="url(#arrow)"/>
+  <path d="M570 108 L570 164" fill="none" stroke="var(--color-text-tertiary)" stroke-width="0.5" marker-end="url(#arrow)"/>
+  <path d="M222 318 L275 318" fill="none" stroke="var(--color-text-tertiary)" stroke-width="0.5" marker-end="url(#arrow)"/>
+  <path d="M370 288 L370 114" fill="none" stroke="var(--color-text-tertiary)" stroke-width="0.5" marker-end="url(#arrow)"/>
+  <text x="378" y="205" style="font-size:12px" fill="var(--color-text-secondary)">lista alimenta o envio</text>
+</svg>
