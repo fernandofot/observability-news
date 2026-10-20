@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Observability News — Latest announcements and releases</title>
+  <meta name="description" content="Product announcements and releases from Prometheus and OpenTelemetry, collected daily from official feeds.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f4f7fb;
+      --surface: #ffffff;
+      --ink: #0f172a;
+      --muted: #64748b;
+      --accent: #2563eb;
+      --line: #e2e8f0;
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 840px; margin: 0 auto; padding: 0 24px; }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 999;
+      pointer-events: none;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    .topbar {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(244, 247, 251, 0.92);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand {
+      display: flex; align-items: center; gap: 10px;
+      font-weight: 600; letter-spacing: -0.01em;
+      color: inherit; text-decoration: none;
+    }
+    .brand-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+    }
+    .nav-link { font-size: 15px; color: var(--ink); text-decoration: none; font-weight: 500; }
+    .nav-link:hover { color: var(--accent); }
+    h1 {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: clamp(30px, 4vw, 42px);
+      line-height: 1.12; letter-spacing: -0.02em;
+      margin: 40px 0 10px; font-weight: 600;
+    }
+    .stats { font-size: 15px; color: var(--muted); margin: 0 0 32px; }
+    .item {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-bottom: 14px;
+    }
+    .item h2 {
+      margin: 8px 0 4px;
+      font-size: 17px;
+      line-height: 1.4;
+    }
+    .item h2 a { color: var(--ink); text-decoration: none; }
+    .item h2 a:hover { color: var(--accent); }
+    .meta { margin: 0; font-size: 13px; color: var(--muted); }
+    .tag {
+      display: inline-block; font-size: 12px; font-weight: 600;
+      color: var(--accent); background: rgba(37, 99, 235, 0.08);
+      padding: 2px 10px; border-radius: 999px;
+    }
+    .empty {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 32px; color: var(--muted);
+    }
+    .limit-note { font-size: 13px; color: var(--muted); margin: 8px 0 40px; }
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0; font-size: 14px; color: var(--muted);
+    }
+    footer a { color: var(--muted); }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html"><span class="brand-dot"></span>Observability News</a>
+      <a class="nav-link" href="index.html">About the project</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Latest announcements and releases</h1>
+    <p class="stats">16 announcements and releases · Updated October 20, 2026</p>
+      <article class="item">
+        <span class="tag">OpenTelemetry</span>
+        <h2><a href="https://opentelemetry.io/blog/2026/hostmetrics-process-scraper-rc" target="_blank" rel="noopener">Versioned metrics: Shipping the first Release Candidate metrics in hostmetrics</a></h2>
+        <p class="meta">OpenTelemetry Blog · Oct 13, 2026</p>
+      </article>
+      <article class="item">
+        <span class="tag">Prometheus</span>
+        <h2><a href="https://github.com/prometheus/prometheus/releases/tag/v3.13.4" target="_blank" rel="noopener">3.13.4 / 2026-09-29</a></h2>
+        <p class="meta">Prometheus Releases · Oct 02, 2026</p>
+      </article>
+      <article class="item">
+        <span class="tag">Prometheus</span>
+        <h2><a href="https://github.com/prometheus/prometheus/releases/tag/v0.313.4" target="_blank" rel="noopener">v0.313.4</a></h2>
+        <p class="meta">Prometheus Releases · Sep 29, 2026</p>
+      </article>
+      <article class="item">
+        <span class="tag">Prometheus</span>
+        <h2><a href="https://github.com/prometheus/prometheus/releases/tag/v3.15.0" target="_blank" rel="noopener">3.15.0 / 2026-09-24</a></h2>
+        <p class="meta">Prometheus Releases · Sep 25, 2026</p>
+      </article>
+      <article class="item">
+        <span class="tag">Prometheus</span>
+        <h2><a href="https://github.com/prometheus/prometheus/releases/tag/v0.315.0" target="_blank" rel="noopener">v0.315.0</a></h2>
+        <p class="meta">Prometheus Releases · Sep 25, 2026</p>
+      </article>
+      <article class="item">
+        <span class="tag">Prometheus</span>
+        <h2><a href="https://github.com/prometheus/prometheus/releases/tag/v3.13.3" target="_blank" rel="noopener">3.13.3 / 2026-09-07</a></h2>
+        <p class="meta">Prometheus Releases · Sep 07, 2026</p>
+      </article>
+      <article class="item">
+        <span class="tag">Prometheus</span>
+        <h2><a href="https://github.com/prometheus/prometheus/releases/tag/v0.313.3" target="_blank" rel="noopener">v0.313.3</a></h2>
+        <p class="meta">Prometheus Releases · Sep 07, 2026</p>
+      </article>
+      <article class="item">
+        <span class="tag">OpenTelemetry</span>
+        <h2><a href="https://opentelemetry.io/blog/2026/go-logs-api-sdk-rc" target="_blank" rel="noopener">OpenTelemetry Go Logs API and SDK reach release candidate status</a></h2>
+        <p class="meta">OpenTelemetry Blog · Aug 31, 2026</p>
+      </article>
+      <article class="item">
+        <span class="tag">Prometheus</span>
+        <h2><a href="https://prometheus.io/blog/2025/12/16/introducing-info-function" target="_blank" rel="noopener">Introducing the Experimental info() Function</a></h2>
+        <p class="meta">Prometheus Blog · Dec 16, 2025</p>
+      </article>
+      <article class="item">
+        <span class="tag">Prometheus</span>
+        <h2><a href="https://prometheus.io/blog/2024/11/14/prometheus-3-0" target="_blank" rel="noopener">Announcing Prometheus 3.0</a></h2>
+        <p class="meta">Prometheus Blog · Nov 14, 2024</p>
+      </article>
+      <article class="item">
+        <span class="tag">Prometheus</span>
+        <h2><a href="https://prometheus.io/blog/2024/09/11/prometheus-3-beta" target="_blank" rel="noopener">Prometheus 3.0 Beta Released</a></h2>
+        <p class="meta">Prometheus Blog · Sep 11, 2024</p>
+      </article>
+      <article class="item">
+        <span class="tag">Prometheus</span>
+        <h2><a href="https://prometheus.io/blog/2021/11/16/agent" target="_blank" rel="noopener">Introducing Prometheus Agent Mode, an Efficient and Cloud-Native Way for Metric Forwarding</a></h2>
+        <p class="meta">Prometheus Blog · Nov 16, 2021</p>
+      </article>
+      <article class="item">
+        <span class="tag">Prometheus</span>
+        <h2><a href="https://prometheus.io/blog/2021/05/03/introducing-prometheus-conformance-program" target="_blank" rel="noopener">Introducing the Prometheus Conformance Program</a></h2>
+        <p class="meta">Prometheus Blog · May 03, 2021</p>
+      </article>
+      <article class="item">
+        <span class="tag">Prometheus</span>
+        <h2><a href="https://prometheus.io/blog/2021/02/18/introducing-the-@-modifier" target="_blank" rel="noopener">Introducing the &#x27;@&#x27; Modifier</a></h2>
+        <p class="meta">Prometheus Blog · Feb 18, 2021</p>
+      </article>
+      <article class="item">
+        <span class="tag">Prometheus</span>
+        <h2><a href="https://prometheus.io/blog/2021/02/17/introducing-feature-flags" target="_blank" rel="noopener">Introducing Feature Flags</a></h2>
+        <p class="meta">Prometheus Blog · Feb 17, 2021</p>
+      </article>
+      <article class="item">
+        <span class="tag">Prometheus</span>
+        <h2><a href="https://prometheus.io/blog/2017/11/08/announcing-prometheus-2-0" target="_blank" rel="noopener">Announcing Prometheus 2.0</a></h2>
+        <p class="meta">Prometheus Blog · Nov 08, 2017</p>
+      </article>
+  </main>
+
+  <footer>
+    <div class="container">
+      <span>© 2026 Observability News · Daily observability curation · </span><a href="index.html">About the project</a>
+    </div>
+  </footer>
+
+</body>
+</html>
