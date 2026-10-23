@@ -32,6 +32,22 @@
       "format": "atom",
       "url": "https://github.com/open-telemetry/opentelemetry-collector-releases/releases.atom",
       "enabled": true
+    },
+    {
+      "id": "dynatrace_product_news",
+      "tool": "Dynatrace",
+      "type": "blog",
+      "format": "rss",
+      "url": "https://www.dynatrace.com/news/category/product-news/feed/",
+      "enabled": true
+    },
+    {
+      "id": "dynatrace_release_notes",
+      "tool": "Dynatrace",
+      "type": "releases",
+      "format": "rss",
+      "url": "https://www.dynatrace.com/news/category/release-notes/feed/",
+      "enabled": true
     }
   ]
 }

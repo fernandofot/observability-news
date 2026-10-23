@@ -28,6 +28,8 @@ SOURCE_LABELS = {
     "prometheus_releases": "Prometheus Releases",
     "opentelemetry_blog": "OpenTelemetry Blog",
     "opentelemetry_collector_releases": "OpenTelemetry Collector Releases",
+    "dynatrace_product_news": "Dynatrace Product News",
+    "dynatrace_release_notes": "Dynatrace Release Notes",
 }
 
 STYLE = """
@@ -202,9 +204,9 @@ def update_index(items):
     else:
         preview = (
             '        <div class="preview-item">\n'
-            '          <span class="tag">Prometheus</span>\n'
+            '          <span class="tag">Observability News</span>\n'
             '          <h4>No items yet</h4>\n'
-            '          <p>The first collection runs daily at 08:00 UTC.</p>\n'
+            '          <p>Collection runs twice each morning.</p>\n'
             "        </div>"
         )
     page = inject(page, "preview", preview)
@@ -215,13 +217,15 @@ def update_index(items):
             '<a href="news.html">browse all the news</a>'
         )
     else:
-        note = "No items collected yet · check back after the next run."
+        note = "No items collected yet · check back after the next scheduled run."
     page = inject(page, "preview-note", note)
 
     page = inject(
         page,
         "stats",
-        f"Tracking {total} announcements and releases · updated daily at 08:00 UTC · more sources coming.",
+        f"Tracking {total} announcements and releases · "
+        "updated daily from official feeds · collected twice each morning · "
+        "more sources coming.",
     )
 
     INDEX_PATH.write_text(page, encoding="utf-8")
@@ -245,7 +249,10 @@ def main():
             else ""
         )
     else:
-        items_html = '      <p class="empty">No eligible items yet. The first collection runs daily at 08:00 UTC.</p>'
+        items_html = (
+            '      <p class="empty">No eligible items yet. '
+            'Collection runs twice each morning.</p>'
+        )
         limit_note = ""
 
     stats = f"{total} announcements and releases · Updated {generated}"
@@ -257,7 +264,7 @@ def main():
         '  <meta charset="UTF-8">\n'
         '  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n'
         '  <title>Observability News · Latest announcements and releases</title>\n'
-        '  <meta name="description" content="Product announcements and releases from Prometheus and OpenTelemetry, collected daily from official feeds.">\n'
+        '  <meta name="description" content="Product announcements and releases from Prometheus, OpenTelemetry, and Dynatrace, collected daily from official feeds.">\n'
         '  <link rel="preconnect" href="https://fonts.googleapis.com">\n'
         '  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
         '  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">\n'
