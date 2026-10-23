@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_successful_run": "2026-10-23T07:56:52.295003+00:00",
+  "last_successful_run": "2026-10-23T08:32:38.677243+00:00",
   "items": [
     {
       "source": "prometheus_blog",
@@ -1802,8 +1802,8 @@
       "published_at": "2026-08-31T06:23:06+00:00",
       "tool": "Dynatrace",
       "canonical_url": "https://www.dynatrace.com/news/blog/dynatrace-managed-release-notes-version-1-346",
-      "status": "eligible",
-      "exclusion_reason": null,
+      "status": "excluded",
+      "exclusion_reason": "duplicate_cross_source",
       "first_seen_at": "2026-10-23T07:43:51.711098+00:00",
       "sent_at": null,
       "related_urls": []
@@ -1816,8 +1816,8 @@
       "published_at": "2026-08-27T08:30:19+00:00",
       "tool": "Dynatrace",
       "canonical_url": "https://www.dynatrace.com/news/blog/oneagent-release-notes-version-1-345",
-      "status": "eligible",
-      "exclusion_reason": null,
+      "status": "excluded",
+      "exclusion_reason": "duplicate_cross_source",
       "first_seen_at": "2026-10-23T07:43:51.711098+00:00",
       "sent_at": null,
       "related_urls": []
@@ -1970,8 +1970,8 @@
       "published_at": "2026-08-03T16:20:10+00:00",
       "tool": "Dynatrace",
       "canonical_url": "https://www.dynatrace.com/news/blog/dynatrace-managed-release-notes-version-1-344",
-      "status": "eligible",
-      "exclusion_reason": null,
+      "status": "excluded",
+      "exclusion_reason": "duplicate_cross_source",
       "first_seen_at": "2026-10-23T07:43:51.711098+00:00",
       "sent_at": null,
       "related_urls": []

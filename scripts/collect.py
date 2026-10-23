@@ -43,6 +43,7 @@ EXCLUDED_PRERELEASE = "prerelease_or_nightly"
 EXCLUDED_COMPONENT = "component_release"
 EXCLUDED_NOT_ANNOUNCEMENT = "not_a_product_announcement"
 EXCLUDED_COMMUNITY = "community_content"
+EXCLUDED_DUPLICATE_CROSS_SOURCE = "duplicate_cross_source"
 
 
 def local_name(tag):
@@ -194,6 +195,51 @@ def is_duplicate(existing, source_id, entry_id_value, canonical_url):
     return bool(canonical_url) and canonical_url == existing.get("canonical_url", "")
 
 
+def deduplicate_cross_source(items, source_types):
+    """Exclude eligible duplicate URLs across sources, preferring release feeds."""
+    groups = {}
+
+    for index, item in enumerate(items):
+        if item.get("status") not in {"eligible", "sent"}:
+            continue
+
+        canonical_url = item.get("canonical_url")
+        if canonical_url:
+            groups.setdefault(canonical_url, []).append((index, item))
+
+    excluded_count = 0
+
+    for candidates in groups.values():
+        source_ids = {item.get("source") for _, item in candidates}
+        if len(candidates) < 2 or len(source_ids) < 2:
+            continue
+
+        # Keep an already-sent item first, otherwise prefer an official release
+        # entry over a blog entry. The earlier registry item breaks ties.
+        winner_index, winner = max(
+            candidates,
+            key=lambda pair: (
+                pair[1].get("status") == "sent",
+                source_types.get(pair[1].get("source")) == "releases",
+                -pair[0],
+            ),
+        )
+
+        for index, item in candidates:
+            if index == winner_index:
+                continue
+            if item.get("status") != "eligible":
+                continue
+            if item.get("source") == winner.get("source"):
+                continue
+
+            item["status"] = "excluded"
+            item["exclusion_reason"] = EXCLUDED_DUPLICATE_CROSS_SOURCE
+            excluded_count += 1
+
+    return excluded_count
+
+
 def main():
     dry_run = "--dry-run" in sys.argv
     now = datetime.now(timezone.utc).isoformat()
@@ -205,6 +251,10 @@ def main():
     config = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
     registry = json.loads(REGISTRY_PATH.read_text(encoding="utf-8"))
     items = registry.get("items", [])
+    source_types = {
+        source["id"]: source["type"]
+        for source in config["sources"]
+    }
 
     for source in config["sources"]:
         if not source.get("enabled", False):
@@ -216,7 +266,13 @@ def main():
             print(f"{source['id']}: FETCH ERROR: {error}")
             continue
 
-        stats = {"fetched": len(entries), "new": 0, "eligible": 0, "excluded": 0, "duplicate": 0}
+        stats = {
+            "fetched": len(entries),
+            "new": 0,
+            "eligible": 0,
+            "excluded": 0,
+            "duplicate": 0,
+        }
 
         for entry in entries:
             entry_id_value = entry["entry_id"] or entry["link"]
@@ -242,6 +298,13 @@ def main():
             f"{source['id']}: fetched={stats['fetched']} new={stats['new']} "
             f"eligible={stats['eligible']} excluded={stats['excluded']} "
             f"duplicate={stats['duplicate']}"
+        )
+
+    cross_source_excluded = deduplicate_cross_source(items, source_types)
+    if cross_source_excluded:
+        print(
+            "Cross-source deduplication: "
+            f"marked {cross_source_excluded} duplicate item(s) excluded."
         )
 
     if dry_run:
