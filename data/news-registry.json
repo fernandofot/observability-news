@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_successful_run": "2026-10-23T14:30:39.860291+00:00",
+  "last_successful_run": "2026-10-24T12:33:31.884929+00:00",
   "items": [
     {
       "source": "prometheus_blog",
@@ -2309,6 +2309,76 @@
       "status": "eligible",
       "exclusion_reason": null,
       "first_seen_at": "2026-10-23T07:43:51.711098+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "opentelemetry_blog",
+      "source_url": "https://opentelemetry.io/blog/index.xml",
+      "source_item_id": "https://opentelemetry.io/blog/2026/ecosystem-lists-user-feedback/",
+      "title": "Help us understand how you use OpenTelemetry's ecosystem lists",
+      "published_at": "2026-10-23T16:07:27+00:00",
+      "tool": "OpenTelemetry",
+      "canonical_url": "https://opentelemetry.io/blog/2026/ecosystem-lists-user-feedback",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-10-24T12:33:31.884929+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "opentelemetry_collector_releases",
+      "source_url": "https://github.com/open-telemetry/opentelemetry-collector-releases/releases.atom",
+      "source_item_id": "tag:github.com,2008:Repository/400253676/v0.164.0-nightly.202610240216",
+      "title": "v0.164.0-nightly.202610240216",
+      "published_at": "2026-10-24T02:16:07+00:00",
+      "tool": "OpenTelemetry Collector",
+      "canonical_url": "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/tag/v0.164.0-nightly.202610240216",
+      "status": "excluded",
+      "exclusion_reason": "prerelease_or_nightly",
+      "first_seen_at": "2026-10-24T12:33:31.884929+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "opentelemetry_collector_releases",
+      "source_url": "https://github.com/open-telemetry/opentelemetry-collector-releases/releases.atom",
+      "source_item_id": "tag:github.com,2008:Repository/400253676/cmd/opampsupervisor/v0.164.0-nightly.202610240216",
+      "title": "cmd/opampsupervisor/v0.164.0-nightly.202610240216",
+      "published_at": "2026-10-24T02:16:21+00:00",
+      "tool": "OpenTelemetry Collector",
+      "canonical_url": "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/tag/cmd%2Fopampsupervisor%2Fv0.164.0-nightly.202610240216",
+      "status": "excluded",
+      "exclusion_reason": "component_release",
+      "first_seen_at": "2026-10-24T12:33:31.884929+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "opentelemetry_collector_releases",
+      "source_url": "https://github.com/open-telemetry/opentelemetry-collector-releases/releases.atom",
+      "source_item_id": "tag:github.com,2008:Repository/400253676/cmd/builder/v0.164.0-nightly.202610240216",
+      "title": "cmd/builder/v0.164.0-nightly.202610240216",
+      "published_at": "2026-10-24T02:16:22+00:00",
+      "tool": "OpenTelemetry Collector",
+      "canonical_url": "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/tag/cmd%2Fbuilder%2Fv0.164.0-nightly.202610240216",
+      "status": "excluded",
+      "exclusion_reason": "component_release",
+      "first_seen_at": "2026-10-24T12:33:31.884929+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "dynatrace_product_news",
+      "source_url": "https://www.dynatrace.com/news/category/product-news/feed/",
+      "source_item_id": "https://www.dynatrace.com/news/?p=75686",
+      "title": "Vulnerability risk exposure: See exposure across monitored processes at runtime",
+      "published_at": "2026-10-23T14:46:44+00:00",
+      "tool": "Dynatrace",
+      "canonical_url": "https://www.dynatrace.com/news/blog/vulnerability-risk-exposure-see-exposure-across-monitored-processes-at-runtime",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-10-24T12:33:31.884929+00:00",
       "sent_at": null,
       "related_urls": []
     }
