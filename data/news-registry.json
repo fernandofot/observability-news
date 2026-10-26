@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_successful_run": "2026-10-25T13:59:15.278213+00:00",
+  "last_successful_run": "2026-10-26T15:03:03.847811+00:00",
   "items": [
     {
       "source": "prometheus_blog",
@@ -2421,6 +2421,48 @@
       "status": "excluded",
       "exclusion_reason": "component_release",
       "first_seen_at": "2026-10-25T13:06:28.028553+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "opentelemetry_collector_releases",
+      "source_url": "https://github.com/open-telemetry/opentelemetry-collector-releases/releases.atom",
+      "source_item_id": "tag:github.com,2008:Repository/400253676/v0.164.0-nightly.202610260221",
+      "title": "v0.164.0-nightly.202610260221",
+      "published_at": "2026-10-26T02:21:53+00:00",
+      "tool": "OpenTelemetry Collector",
+      "canonical_url": "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/tag/v0.164.0-nightly.202610260221",
+      "status": "excluded",
+      "exclusion_reason": "prerelease_or_nightly",
+      "first_seen_at": "2026-10-26T15:03:03.847811+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "opentelemetry_collector_releases",
+      "source_url": "https://github.com/open-telemetry/opentelemetry-collector-releases/releases.atom",
+      "source_item_id": "tag:github.com,2008:Repository/400253676/cmd/opampsupervisor/v0.164.0-nightly.202610260221",
+      "title": "cmd/opampsupervisor/v0.164.0-nightly.202610260221",
+      "published_at": "2026-10-26T02:22:05+00:00",
+      "tool": "OpenTelemetry Collector",
+      "canonical_url": "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/tag/cmd%2Fopampsupervisor%2Fv0.164.0-nightly.202610260221",
+      "status": "excluded",
+      "exclusion_reason": "component_release",
+      "first_seen_at": "2026-10-26T15:03:03.847811+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "opentelemetry_collector_releases",
+      "source_url": "https://github.com/open-telemetry/opentelemetry-collector-releases/releases.atom",
+      "source_item_id": "tag:github.com,2008:Repository/400253676/cmd/builder/v0.164.0-nightly.202610260221",
+      "title": "cmd/builder/v0.164.0-nightly.202610260221",
+      "published_at": "2026-10-26T02:22:03+00:00",
+      "tool": "OpenTelemetry Collector",
+      "canonical_url": "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/tag/cmd%2Fbuilder%2Fv0.164.0-nightly.202610260221",
+      "status": "excluded",
+      "exclusion_reason": "component_release",
+      "first_seen_at": "2026-10-26T15:03:03.847811+00:00",
       "sent_at": null,
       "related_urls": []
     }
