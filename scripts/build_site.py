@@ -14,6 +14,7 @@ Usage:
 import html
 import json
 import re
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -154,9 +155,9 @@ def inject(page, name, replacement):
     """Replace the content between the generated markers for `name`,
     keeping the markers themselves in place.
 
-    Matching is whitespace-tolerant: copy-paste can introduce extra
-    spaces or non-breaking spaces that look identical but break an
-    exact string comparison, so we match with a regex instead.
+    Matching is whitespace-tolerant, so harmless spacing differences in
+    the marker comments do not prevent a match. A missing marker raises
+    ValueError instead of silently leaving the page out of date.
     """
     start_re = re.compile(
         r"<!--\s*generated\s*:\s*" + re.escape(name) + r"\s*:\s*start\s*-->"
@@ -166,12 +167,12 @@ def inject(page, name, replacement):
     )
     start_match = start_re.search(page)
     if not start_match:
-        print(f"Warning: markers for '{name}' not found in index.html, skipped.")
-        return page
+        raise ValueError(f"Start marker for '{name}' not found in {INDEX_PATH}.")
+
     end_match = end_re.search(page, start_match.end())
     if not end_match:
-        print(f"Warning: end marker for '{name}' not found in index.html, skipped.")
-        return page
+        raise ValueError(f"End marker for '{name}' not found in {INDEX_PATH}.")
+
     return page[: start_match.end()] + replacement + page[end_match.start() :]
 
 
@@ -188,9 +189,13 @@ def render_hero_item(item):
 
 
 def update_index(items):
+    """Inject live data into index.html.
+
+    Every injection must succeed before the file is written, so the page
+    is never left half updated. Raises on a missing file or marker.
+    """
     if not INDEX_PATH.exists():
-        print("index.html not found, skipped.")
-        return
+        raise FileNotFoundError(f"{INDEX_PATH} not found.")
 
     page = INDEX_PATH.read_text(encoding="utf-8")
     total = len(items)
@@ -206,7 +211,8 @@ def update_index(items):
             '        <div class="preview-item">\n'
             '          <span class="tag">Observability News</span>\n'
             '          <h4>No items yet</h4>\n'
-            '          <p>Collection runs twice each morning.</p>\n'
+            '          <p>Collection is scheduled for 08:00 and 10:00 UTC. '
+            'Publication times may vary.</p>\n'
             "        </div>"
         )
     page = inject(page, "preview", preview)
@@ -224,8 +230,9 @@ def update_index(items):
         page,
         "stats",
         f"Tracking {total} announcements and releases · "
-        "updated daily from official feeds · collected twice each morning · "
-        "more sources coming.",
+        "updated daily from official feeds · "
+        "collection scheduled for 08:00 and 10:00 UTC · "
+        "publication times may vary · more sources coming.",
     )
 
     INDEX_PATH.write_text(page, encoding="utf-8")
@@ -251,7 +258,8 @@ def main():
     else:
         items_html = (
             '      <p class="empty">No eligible items yet. '
-            'Collection runs twice each morning.</p>'
+            'Collection is scheduled for 08:00 and 10:00 UTC. '
+            'Publication times may vary.</p>'
         )
         limit_note = ""
 
@@ -303,7 +311,11 @@ def main():
     NEWS_PATH.write_text(head + stats_html + items_html + "\n" + tail, encoding="utf-8")
     print(f"news.html written: {total} eligible items, {len(shown)} shown.")
 
-    update_index(items)
+    try:
+        update_index(items)
+    except (ValueError, FileNotFoundError) as error:
+        print(f"ERROR: {error} index.html was not updated.", file=sys.stderr)
+        sys.exit(1)
 
 
 if __name__ == "__main__":
