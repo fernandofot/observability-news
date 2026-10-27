@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_successful_run": "2026-10-27T14:16:55.668497+00:00",
+  "last_successful_run": "2026-10-27T15:35:28.019402+00:00",
   "items": [
     {
       "source": "prometheus_blog",
@@ -2561,6 +2561,20 @@
       "status": "excluded",
       "exclusion_reason": "component_release",
       "first_seen_at": "2026-10-27T14:16:55.668497+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "opentelemetry_blog",
+      "source_url": "https://opentelemetry.io/blog/index.xml",
+      "source_item_id": "https://opentelemetry.io/blog/2026/ottl-v1/",
+      "title": "OpenTelemetry Transformation Language reaches v1",
+      "published_at": "2026-10-27T15:00:47+00:00",
+      "tool": "OpenTelemetry",
+      "canonical_url": "https://opentelemetry.io/blog/2026/ottl-v1",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-10-27T15:35:28.019402+00:00",
       "sent_at": null,
       "related_urls": []
     }
