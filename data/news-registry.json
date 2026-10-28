@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_successful_run": "2026-10-28T14:58:51.679153+00:00",
+  "last_successful_run": "2026-10-28T16:19:15.812765+00:00",
   "items": [
     {
       "source": "prometheus_blog",
@@ -2757,6 +2757,20 @@
       "status": "eligible",
       "exclusion_reason": null,
       "first_seen_at": "2026-10-28T14:58:51.679153+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "prometheus_releases",
+      "source_url": "https://github.com/prometheus/prometheus/releases.atom",
+      "source_item_id": "tag:github.com,2008:Repository/6838921/v3.16.0-rc.2",
+      "title": "v3.16.0-rc.2",
+      "published_at": "2026-10-28T15:09:10+00:00",
+      "tool": "Prometheus",
+      "canonical_url": "https://github.com/prometheus/prometheus/releases/tag/v3.16.0-rc.2",
+      "status": "excluded",
+      "exclusion_reason": "prerelease_or_nightly",
+      "first_seen_at": "2026-10-28T16:19:15.812765+00:00",
       "sent_at": null,
       "related_urls": []
     }
