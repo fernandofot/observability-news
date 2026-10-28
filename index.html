@@ -166,9 +166,22 @@
     footer a { color: var(--muted); }
 
     @media (max-width: 880px) {
-      .hero { grid-template-columns: 1fr; padding: 48px 0 40px; }
+      .container { padding: 0 16px; }
+      .hero { grid-template-columns: 1fr; padding: 40px 0 32px; gap: 32px; }
       .feature-grid { grid-template-columns: 1fr; }
       .next-inner { padding: 32px 20px; }
+
+      /* Ajuste do topo em mobile para não partir texto */
+      .topbar-inner { height: auto; padding: 12px 0; flex-wrap: wrap; gap: 12px; }
+      .nav-links { gap: 16px; font-size: 14px; }
+
+      /* Botões a ocupar a largura total em coluna */
+      .hero-actions { flex-direction: column; width: 100%; }
+      .hero-actions .btn { width: 100%; text-align: center; }
+      .next-actions .btn { width: 100%; text-align: center; }
+
+      /* Badges mais compactos */
+      .badge { font-size: 13px; padding: 6px 12px; }
     }
   </style>
 </head>
@@ -206,7 +219,7 @@
       <aside class="preview-card" aria-label="Latest collected news">
         <div class="preview-head">
           <strong>Observability News</strong>
-          <span>Updated <!-- generated:updated:start -->October 27, 2026<!-- generated:updated:end --></span>
+          <span>Updated <!-- generated:updated:start -->October 28, 2026<!-- generated:updated:end --></span>
         </div>
         <!-- generated:preview:start -->        <div class="preview-item">
           <span class="tag">OpenTelemetry Collector</span>
