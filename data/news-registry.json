@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_successful_run": "2026-10-29T15:06:10.367342+00:00",
+  "last_successful_run": "2026-10-29T16:29:31.837967+00:00",
   "items": [
     {
       "source": "prometheus_blog",
@@ -2841,6 +2841,20 @@
       "status": "excluded",
       "exclusion_reason": "component_release",
       "first_seen_at": "2026-10-29T15:06:10.367342+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "opentelemetry_blog",
+      "source_url": "https://opentelemetry.io/blog/index.xml",
+      "source_item_id": "https://opentelemetry.io/blog/2026/collector-with-less-dependencies/",
+      "title": "Only include resource detectors you need by building your own Collector",
+      "published_at": "2026-10-29T15:39:27+00:00",
+      "tool": "OpenTelemetry",
+      "canonical_url": "https://opentelemetry.io/blog/2026/collector-with-less-dependencies",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-10-29T16:29:31.837967+00:00",
       "sent_at": null,
       "related_urls": []
     }
