@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_successful_run": "2026-10-29T16:29:31.837967+00:00",
+  "last_successful_run": "2026-10-29T19:30:35.997434+00:00",
   "items": [
     {
       "source": "prometheus_blog",
@@ -2855,6 +2855,48 @@
       "status": "excluded",
       "exclusion_reason": "not_a_product_announcement",
       "first_seen_at": "2026-10-29T16:29:31.837967+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "opentelemetry_blog",
+      "source_url": "https://opentelemetry.io/blog/index.xml",
+      "source_item_id": "https://opentelemetry.io/blog/2026/gc-elections-results/",
+      "title": "Announcing the 2026 Governance Committee Election Results",
+      "published_at": "2026-10-29T16:31:20+00:00",
+      "tool": "OpenTelemetry",
+      "canonical_url": "https://opentelemetry.io/blog/2026/gc-elections-results",
+      "status": "excluded",
+      "exclusion_reason": "community_content",
+      "first_seen_at": "2026-10-29T19:30:35.997434+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "dynatrace_product_news",
+      "source_url": "https://www.dynatrace.com/news/category/product-news/feed/",
+      "source_item_id": "https://www.dynatrace.com/news/?p=75723",
+      "title": "Dynatrace unifies AI Observability ingest across coding agents, OneAgent, and OpenInference",
+      "published_at": "2026-10-29T18:40:26+00:00",
+      "tool": "Dynatrace",
+      "canonical_url": "https://www.dynatrace.com/news/blog/dynatrace-unifies-ai-observability-ingest-across-coding-agents-oneagent-and-openinference",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-10-29T19:30:35.997434+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "dynatrace_product_news",
+      "source_url": "https://www.dynatrace.com/news/category/product-news/feed/",
+      "source_item_id": "https://www.dynatrace.com/news/?p=75182",
+      "title": "Surface vulnerabilities in your AI services",
+      "published_at": "2026-10-29T18:03:00+00:00",
+      "tool": "Dynatrace",
+      "canonical_url": "https://www.dynatrace.com/news/blog/surface-vulnerabilities-in-your-ai-services",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-10-29T19:30:35.997434+00:00",
       "sent_at": null,
       "related_urls": []
     }
