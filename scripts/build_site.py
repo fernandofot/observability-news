@@ -121,14 +121,26 @@ STYLE = """
       padding: 28px 0; font-size: 14px; color: var(--muted);
     }
     footer a { color: var(--muted); }
+
+    @media (max-width: 880px) {
+      .container { padding: 0 16px; }
+      .topbar-inner { height: auto; padding: 12px 0; flex-wrap: wrap; gap: 8px; }
+      .nav-link { font-size: 14px; }
+      h1 { margin: 28px 0 8px; }
+      .item { padding: 16px 18px; }
+      .empty { padding: 24px 18px; }
+    }
 """
 
 
 def format_date(iso_string):
+    if not iso_string:
+        return ""
     try:
-        return datetime.fromisoformat(iso_string).strftime("%b %d, %Y")
+        parsed = datetime.fromisoformat(str(iso_string).replace("Z", "+00:00"))
     except (TypeError, ValueError):
         return ""
+    return parsed.strftime("%b %d, %Y")
 
 
 def source_label(source):
@@ -211,8 +223,8 @@ def update_index(items):
             '        <div class="preview-item">\n'
             '          <span class="tag">Observability News</span>\n'
             '          <h4>No items yet</h4>\n'
-            '          <p>Collection is scheduled for 08:00 and 10:00 UTC. '
-            'Publication times may vary.</p>\n'
+            '          <p>Collection runs once or twice a day. '
+            'Publication times vary.</p>\n'
             "        </div>"
         )
     page = inject(page, "preview", preview)
@@ -223,7 +235,7 @@ def update_index(items):
             '<a href="news.html">browse all the news</a>'
         )
     else:
-        note = "No items collected yet · check back after the next scheduled run."
+        note = "No items collected yet · check back after the next run."
     page = inject(page, "preview-note", note)
 
     page = inject(
@@ -231,8 +243,8 @@ def update_index(items):
         "stats",
         f"Tracking {total} announcements and releases · "
         "updated daily from official feeds · "
-        "collection scheduled for 08:00 and 10:00 UTC · "
-        "publication times may vary · more sources coming.",
+        "collection runs once or twice a day · "
+        "publication times vary · more sources coming.",
     )
 
     INDEX_PATH.write_text(page, encoding="utf-8")
@@ -258,8 +270,8 @@ def main():
     else:
         items_html = (
             '      <p class="empty">No eligible items yet. '
-            'Collection is scheduled for 08:00 and 10:00 UTC. '
-            'Publication times may vary.</p>'
+            'Collection runs once or twice a day. '
+            'Publication times vary.</p>'
         )
         limit_note = ""
 
