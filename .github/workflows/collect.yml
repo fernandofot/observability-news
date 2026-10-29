@@ -2,12 +2,20 @@ name: Collect observability news
 
 on:
   schedule:
-    - cron: "0 8 * * *"
-    - cron: "0 10 * * *" 
+    # Two attempts, ten hours apart, off the top of the hour where the
+    # scheduler is busiest. GitHub delays scheduled runs by several hours,
+    # so these times are best effort and the site copy says so.
+    - cron: "17 2 * * *"
+    - cron: "17 12 * * *"
   workflow_dispatch:
 
 permissions:
   contents: write
+
+# Serialise runs so two overlapping jobs never push at the same time.
+concurrency:
+  group: collect-news
+  cancel-in-progress: false
 
 jobs:
   collect:
@@ -35,6 +43,10 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/news-registry.json news.html index.html
-          git diff --cached --quiet && echo "No changes to commit." && exit 0
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
           git commit -m "Update news registry and pages (automated collection)"
+          git pull --rebase origin main
           git push
