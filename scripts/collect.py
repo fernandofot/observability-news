@@ -1,8 +1,8 @@
 """Collect observability news from official feeds into the item registry.
 
 Reads config/sources.json, fetches every enabled feed, normalizes entries,
-applies the MVP editorial filters and merges new items into
-data/news-registry.json. This script never sends emails.
+drops anything older than MAX_AGE_DAYS, applies the MVP editorial filters and
+merges new items into data/news-registry.json. This script never sends emails.
 
 Usage:
     python3 scripts/collect.py             # collect and update the registry
@@ -15,7 +15,7 @@ import ssl
 import sys
 import urllib.request
 import xml.etree.ElementTree as ET
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from pathlib import Path
 from urllib.parse import urlsplit, urlunsplit
@@ -24,6 +24,8 @@ import certifi
 
 CONFIG_PATH = Path("config/sources.json")
 REGISTRY_PATH = Path("data/news-registry.json")
+
+MAX_AGE_DAYS = 30
 
 PRERELEASE_PATTERN = re.compile(
     r"[-.](rc|alpha|beta|nightly|preview)", re.IGNORECASE
@@ -117,6 +119,19 @@ def normalize_date(raw_date):
         parsed = parsed.replace(tzinfo=timezone.utc)
 
     return parsed.astimezone(timezone.utc).isoformat()
+
+
+def parse_published(raw_date):
+    """Return an aware UTC datetime for a feed date, or None."""
+    iso_date = normalize_date(raw_date)
+    if iso_date is None:
+        return None
+    return datetime.fromisoformat(iso_date)
+
+
+def is_recent(published, max_age_days=MAX_AGE_DAYS):
+    """False when the entry is older than the window."""
+    return published >= datetime.now(timezone.utc) - timedelta(days=max_age_days)
 
 
 def normalize_url(url):
@@ -268,6 +283,8 @@ def main():
 
         stats = {
             "fetched": len(entries),
+            "undated": 0,
+            "stale": 0,
             "new": 0,
             "eligible": 0,
             "excluded": 0,
@@ -277,6 +294,15 @@ def main():
         for entry in entries:
             entry_id_value = entry["entry_id"] or entry["link"]
             canonical_url = normalize_url(entry["link"])
+
+            published = parse_published(entry["date"])
+            if published is None:
+                stats["undated"] += 1
+                continue
+
+            if not is_recent(published):
+                stats["stale"] += 1
+                continue
 
             if any(
                 is_duplicate(existing, source["id"], entry_id_value, canonical_url)
@@ -295,10 +321,16 @@ def main():
                 stats["excluded"] += 1
 
         print(
-            f"{source['id']}: fetched={stats['fetched']} new={stats['new']} "
-            f"eligible={stats['eligible']} excluded={stats['excluded']} "
-            f"duplicate={stats['duplicate']}"
+            f"{source['id']}: fetched={stats['fetched']} stale={stats['stale']} "
+            f"new={stats['new']} eligible={stats['eligible']} "
+            f"excluded={stats['excluded']} duplicate={stats['duplicate']}"
         )
+
+        if stats["fetched"] and stats["undated"] == stats["fetched"]:
+            print(
+                f"{source['id']}: WARNING no entry has a readable date, "
+                "check the feed date format."
+            )
 
     cross_source_excluded = deduplicate_cross_source(items, source_types)
     if cross_source_excluded:
