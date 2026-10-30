@@ -22,6 +22,7 @@ REGISTRY_PATH = Path("data/news-registry.json")
 NEWS_PATH = Path("news.html")
 INDEX_PATH = Path("index.html")
 MAX_ITEMS = 100
+MAX_ITEMS_PER_TOOL = 14
 HERO_ITEMS = 3
 
 SOURCE_LABELS = {
@@ -31,6 +32,10 @@ SOURCE_LABELS = {
     "opentelemetry_collector_releases": "OpenTelemetry Collector Releases",
     "dynatrace_product_news": "Dynatrace Product News",
     "dynatrace_release_notes": "Dynatrace Release Notes",
+    "grafana_whats_new": "Grafana What's New",
+    "grafana_blog": "Grafana Blog",
+    "elastic_blog": "Elastic Blog",
+    "datadog_blog": "Datadog Blog",
 }
 
 STYLE = """
@@ -147,6 +152,34 @@ def source_label(source):
     return SOURCE_LABELS.get(source, (source or "").replace("_", " ").title())
 
 
+def select_items(items, max_items=MAX_ITEMS, max_per_tool=MAX_ITEMS_PER_TOOL):
+    """Pick eligible items newest first, capped per tool.
+
+    The cap keeps a high-volume source from pushing the quieter ones off
+    the page: without it the newest 100 items would be almost entirely
+    whichever tool publishes most often.
+    """
+    eligible = sorted(
+        (item for item in items if item.get("status") == "eligible"),
+        key=lambda item: item.get("published_at") or "",
+        reverse=True,
+    )
+
+    per_tool = {}
+    selected = []
+
+    for item in eligible:
+        tool = item.get("tool") or "Unknown"
+        if per_tool.get(tool, 0) >= max_per_tool:
+            continue
+        per_tool[tool] = per_tool.get(tool, 0) + 1
+        selected.append(item)
+        if len(selected) >= max_items:
+            break
+
+    return selected
+
+
 def render_item(item):
     tool = html.escape(item.get("tool") or "News")
     title = html.escape(item.get("title") or "Untitled")
@@ -257,14 +290,15 @@ def main():
     items.sort(key=lambda i: i.get("published_at") or "", reverse=True)
 
     total = len(items)
-    shown = items[:MAX_ITEMS]
+    shown = select_items(items)
     generated = datetime.now(timezone.utc).strftime("%B %d, %Y")
 
     if shown:
         items_html = "\n".join(render_item(item) for item in shown)
         limit_note = (
-            f'      <p class="limit-note">Showing the {MAX_ITEMS} most recent of {total} items.</p>'
-            if total > MAX_ITEMS
+            f'      <p class="limit-note">Showing {len(shown)} of {total} items, '
+            f'with a maximum of {MAX_ITEMS_PER_TOOL} per tool.</p>'
+            if len(shown) < total
             else ""
         )
     else:
@@ -284,7 +318,7 @@ def main():
         '  <meta charset="UTF-8">\n'
         '  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n'
         '  <title>Observability News · Latest announcements and releases</title>\n'
-        '  <meta name="description" content="Product announcements and releases from Prometheus, OpenTelemetry, and Dynatrace, collected daily from official feeds.">\n'
+        '  <meta name="description" content="Product announcements and releases from Prometheus, OpenTelemetry, Grafana, Dynatrace, Elastic, and Datadog, collected from official feeds.">\n'
         '  <link rel="preconnect" href="https://fonts.googleapis.com">\n'
         '  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
         '  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">\n'

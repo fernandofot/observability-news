@@ -60,13 +60,29 @@ def child_text(element, names):
 
 
 def entry_link(element):
+    """Return the alternate link of an entry, falling back to any link.
+
+    Atom allows several <link> children per entry, and the order is not
+    guaranteed. Preferring rel="alternate" keeps the item pointing at the
+    article instead of at the feed itself.
+    """
+    fallback = ""
+
     for child in element:
-        if local_name(child.tag) == "link":
-            href = child.attrib.get("href")
-            if href:
-                return href.strip()
-            return (child.text or "").strip()
-    return ""
+        if local_name(child.tag) != "link":
+            continue
+
+        href = child.attrib.get("href")
+        value = (href or child.text or "").strip()
+        if not value:
+            continue
+
+        if child.attrib.get("rel", "alternate") == "alternate":
+            return value
+
+        fallback = fallback or value
+
+    return fallback
 
 
 def parse_entries(xml_content):
@@ -130,7 +146,9 @@ def parse_published(raw_date):
 
 
 def is_recent(published, max_age_days=MAX_AGE_DAYS):
-    """False when the entry is older than the window."""
+    """False when the entry is older than the window or has no date."""
+    if published is None:
+        return False
     return published >= datetime.now(timezone.utc) - timedelta(days=max_age_days)
 
 
@@ -180,13 +198,13 @@ def apply_filters(source, entry, item):
         item["exclusion_reason"] = EXCLUDED_NOT_ANNOUNCEMENT
 
 
-def build_item(source, entry, seen_at):
+def build_item(source, entry, seen_at, published):
     item = {
         "source": source["id"],
         "source_url": source["url"],
         "source_item_id": entry["entry_id"] or None,
         "title": entry["title"],
-        "published_at": normalize_date(entry["date"]),
+        "published_at": published.isoformat(),
         "tool": source["tool"],
         "canonical_url": normalize_url(entry["link"]),
         "status": "eligible",
@@ -201,7 +219,7 @@ def build_item(source, entry, seen_at):
 
 
 def is_duplicate(existing, source_id, entry_id_value, canonical_url):
-    if existing["source"] != source_id:
+    if existing.get("source") != source_id:
         return False
 
     if entry_id_value and existing.get("source_item_id") == entry_id_value:
@@ -311,7 +329,7 @@ def main():
                 stats["duplicate"] += 1
                 continue
 
-            item = build_item(source, entry, now)
+            item = build_item(source, entry, now, published)
             items.append(item)
             stats["new"] += 1
 
@@ -321,15 +339,15 @@ def main():
                 stats["excluded"] += 1
 
         print(
-            f"{source['id']}: fetched={stats['fetched']} stale={stats['stale']} "
-            f"new={stats['new']} eligible={stats['eligible']} "
+            f"{source['id']}: fetched={stats['fetched']} undated={stats['undated']} "
+            f"stale={stats['stale']} new={stats['new']} eligible={stats['eligible']} "
             f"excluded={stats['excluded']} duplicate={stats['duplicate']}"
         )
 
-        if stats["fetched"] and stats["undated"] == stats["fetched"]:
+        if stats["undated"]:
             print(
-                f"{source['id']}: WARNING no entry has a readable date, "
-                "check the feed date format."
+                f"{source['id']}: WARNING {stats['undated']} entry(ies) have no "
+                "readable date, check the feed date format."
             )
 
     cross_source_excluded = deduplicate_cross_source(items, source_types)

@@ -48,6 +48,38 @@
       "format": "rss",
       "url": "https://www.dynatrace.com/news/category/release-notes/feed/",
       "enabled": true
+    },
+    {
+      "id": "grafana_whats_new",
+      "tool": "Grafana",
+      "type": "releases",
+      "format": "rss",
+      "url": "https://grafana.com/whats-new/index.xml",
+      "enabled": true
+    },
+    {
+      "id": "grafana_blog",
+      "tool": "Grafana",
+      "type": "blog",
+      "format": "rss",
+      "url": "https://grafana.com/blog/index.xml",
+      "enabled": true
+    },
+    {
+      "id": "elastic_blog",
+      "tool": "Elastic",
+      "type": "blog",
+      "format": "rss",
+      "url": "https://www.elastic.co/blog/feed",
+      "enabled": true
+    },
+    {
+      "id": "datadog_blog",
+      "tool": "Datadog",
+      "type": "blog",
+      "format": "rss",
+      "url": "https://www.datadoghq.com/blog/index.xml",
+      "enabled": true
     }
   ]
 }
