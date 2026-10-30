@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_successful_run": "2026-10-30T08:41:00.076454+00:00",
+  "last_successful_run": "2026-10-30T18:02:30.455803+00:00",
   "items": [
     {
       "source": "prometheus_blog",
@@ -2939,6 +2939,20 @@
       "status": "excluded",
       "exclusion_reason": "component_release",
       "first_seen_at": "2026-10-30T08:41:00.076454+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "opentelemetry_blog",
+      "source_url": "https://opentelemetry.io/blog/index.xml",
+      "source_item_id": "https://opentelemetry.io/blog/2026/obi-v1-release/",
+      "title": "OpenTelemetry eBPF Instrumentation reaches v1.0.0",
+      "published_at": "2026-10-30T15:42:24+00:00",
+      "tool": "OpenTelemetry",
+      "canonical_url": "https://opentelemetry.io/blog/2026/obi-v1-release",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-10-30T18:02:30.455803+00:00",
       "sent_at": null,
       "related_urls": []
     }
