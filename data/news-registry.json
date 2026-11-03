@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_successful_run": "2026-11-03T09:35:30.237859+00:00",
+  "last_successful_run": "2026-11-03T19:31:05.547642+00:00",
   "items": [
     {
       "source": "prometheus_blog",
@@ -4563,6 +4563,90 @@
       "status": "excluded",
       "exclusion_reason": "component_release",
       "first_seen_at": "2026-11-03T09:35:30.237859+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "prometheus_releases",
+      "source_url": "https://github.com/prometheus/prometheus/releases.atom",
+      "source_item_id": "tag:github.com,2008:Repository/6838921/v3.16.0-rc.4",
+      "title": "3.16.0-rc.4 / 2026-11-03",
+      "published_at": "2026-11-03T19:23:03+00:00",
+      "tool": "Prometheus",
+      "canonical_url": "https://github.com/prometheus/prometheus/releases/tag/v3.16.0-rc.4",
+      "status": "excluded",
+      "exclusion_reason": "prerelease_or_nightly",
+      "first_seen_at": "2026-11-03T19:31:05.547642+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "prometheus_releases",
+      "source_url": "https://github.com/prometheus/prometheus/releases.atom",
+      "source_item_id": "tag:github.com,2008:Repository/6838921/v3.16.0-rc.3",
+      "title": "v3.16.0-rc.3",
+      "published_at": "2026-11-03T15:23:40+00:00",
+      "tool": "Prometheus",
+      "canonical_url": "https://github.com/prometheus/prometheus/releases/tag/v3.16.0-rc.3",
+      "status": "excluded",
+      "exclusion_reason": "prerelease_or_nightly",
+      "first_seen_at": "2026-11-03T19:31:05.547642+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "prometheus_releases",
+      "source_url": "https://github.com/prometheus/prometheus/releases.atom",
+      "source_item_id": "tag:github.com,2008:Repository/6838921/v0.316.0-rc.4",
+      "title": "v0.316.0-rc.4",
+      "published_at": "2026-11-03T19:23:14+00:00",
+      "tool": "Prometheus",
+      "canonical_url": "https://github.com/prometheus/prometheus/releases/tag/v0.316.0-rc.4",
+      "status": "excluded",
+      "exclusion_reason": "prerelease_or_nightly",
+      "first_seen_at": "2026-11-03T19:31:05.547642+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "grafana_whats_new",
+      "source_url": "https://grafana.com/whats-new/index.xml",
+      "source_item_id": "https://grafana.com/whats-new/2026-10-28-undo-and-redo-dashboard-changes",
+      "title": "Undo and redo dashboard changes",
+      "published_at": "2026-11-03T12:00:00+00:00",
+      "tool": "Grafana",
+      "canonical_url": "https://grafana.com/whats-new/2026-11-02-undo-and-redo-dashboard-changes",
+      "status": "eligible",
+      "exclusion_reason": null,
+      "first_seen_at": "2026-11-03T19:31:05.547642+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "grafana_whats_new",
+      "source_url": "https://grafana.com/whats-new/index.xml",
+      "source_item_id": "https://grafana.com/whats-new/2026-10-30-redesigned-grafana-cloud-homepage",
+      "title": "Redesigned Grafana Cloud homepage",
+      "published_at": "2026-10-30T12:00:00+00:00",
+      "tool": "Grafana",
+      "canonical_url": "https://grafana.com/whats-new/2026-10-30-redesigned-grafana-cloud-homepage",
+      "status": "eligible",
+      "exclusion_reason": null,
+      "first_seen_at": "2026-11-03T19:31:05.547642+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "grafana_blog",
+      "source_url": "https://grafana.com/blog/index.xml",
+      "source_item_id": "https://grafana.com/blog/trace-linkage-connect-the-dots-between-your-app-traces-and-database-queries/",
+      "title": "Trace linkage: connect the dots between your app traces and database queries",
+      "published_at": "2026-11-03T15:05:03+00:00",
+      "tool": "Grafana",
+      "canonical_url": "https://grafana.com/blog/trace-linkage-connect-the-dots-between-your-app-traces-and-database-queries",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-11-03T19:31:05.547642+00:00",
       "sent_at": null,
       "related_urls": []
     }
