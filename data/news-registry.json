@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_successful_run": "2026-11-04T09:16:57.511106+00:00",
+  "last_successful_run": "2026-11-04T19:49:41.555965+00:00",
   "items": [
     {
       "source": "prometheus_blog",
@@ -4745,6 +4745,34 @@
       "status": "excluded",
       "exclusion_reason": "not_a_product_announcement",
       "first_seen_at": "2026-11-04T09:16:57.511106+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "elastic_blog",
+      "source_url": "https://www.elastic.co/blog/feed",
+      "source_item_id": "https://www.elastic.co/blog/ai-adoption-in-soc",
+      "title": "AI in the SOC: Where security teams stand",
+      "published_at": "2026-11-04T00:00:00+00:00",
+      "tool": "Elastic",
+      "canonical_url": "https://www.elastic.co/blog/ai-adoption-in-soc",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-11-04T19:49:41.555965+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "datadog_blog",
+      "source_url": "https://www.datadoghq.com/blog/index.xml",
+      "source_item_id": "https://www.datadoghq.com/blog/online-experiments-agent-observability/",
+      "title": "Compare AI agent changes with Online Experiments in Agent Observability",
+      "published_at": "2026-11-04T00:00:00+00:00",
+      "tool": "Datadog",
+      "canonical_url": "https://www.datadoghq.com/blog/online-experiments-agent-observability",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-11-04T19:49:41.555965+00:00",
       "sent_at": null,
       "related_urls": []
     }
