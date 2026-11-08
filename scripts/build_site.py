@@ -1,11 +1,11 @@
 """Build news.html and refresh index.html from the item registry.
 
-Reads data/news-registry.json, keeps eligible items and renders them into
-a static news.html page using the site's design system. It also injects
-the latest headlines and live counts into index.html between
-<!-- generated:... --> markers, so the landing page always shows real
-data. Run after collect.py (locally or in GitHub Actions). This script
-never sends emails.
+Reads data/news-registry.json, keeps eligible items published within the
+last RECENCY_DAYS days and renders them into a static news.html page
+using the site's design system. It also injects the latest headlines and
+live counts into index.html between <!-- generated:... --> markers, so
+the landing page always shows real data. Run after collect.py (locally
+or in GitHub Actions). This script never sends emails.
 
 Usage:
     python3 scripts/build_site.py
@@ -15,7 +15,7 @@ import html
 import json
 import re
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 REGISTRY_PATH = Path("data/news-registry.json")
@@ -24,6 +24,16 @@ INDEX_PATH = Path("index.html")
 MAX_ITEMS = 100
 MAX_ITEMS_PER_TOOL = 14
 HERO_ITEMS = 3
+RECENCY_DAYS = 30
+
+MONTHS = (
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+)
+MONTHS_LONG = (
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December",
+)
 
 SOURCE_LABELS = {
     "prometheus_blog": "Prometheus Blog",
@@ -138,14 +148,57 @@ STYLE = """
 """
 
 
-def format_date(iso_string):
-    if not iso_string:
-        return ""
+def parse_datetime(value):
+    """Parse an ISO timestamp into an aware UTC datetime, or None.
+
+    Naive timestamps are read as UTC so a build never shifts an item to
+    the previous day depending on the machine's timezone.
+    """
+    if not value:
+        return None
     try:
-        parsed = datetime.fromisoformat(str(iso_string).replace("Z", "+00:00"))
+        parsed = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
     except (TypeError, ValueError):
+        return None
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=timezone.utc)
+    return parsed.astimezone(timezone.utc)
+
+
+def sort_key(item):
+    """Newest first, with undated items last instead of crashing the sort."""
+    return parse_datetime(item.get("published_at")) or datetime.min.replace(
+        tzinfo=timezone.utc
+    )
+
+
+def format_date(iso_string):
+    """Render a short English date without relying on the system locale.
+
+    strftime('%b %d') would print Portuguese month names on a machine
+    with a Portuguese locale and zero-pad the day, so the month table
+    keeps local and CI builds byte-identical.
+    """
+    parsed = parse_datetime(iso_string)
+    if parsed is None:
         return ""
-    return parsed.strftime("%b %d, %Y")
+    return f"{MONTHS[parsed.month - 1]} {parsed.day}, {parsed.year}"
+
+
+def format_long_date(moment):
+    return f"{MONTHS_LONG[moment.month - 1]} {moment.day}, {moment.year}"
+
+
+def within_window(item, now, days=RECENCY_DAYS):
+    """True when the item was published inside the recency window.
+
+    Undated items are dropped: the page states a 30-day window, so an
+    item with no readable date cannot be shown as if it belonged there.
+    """
+    published = parse_datetime(item.get("published_at"))
+    if published is None:
+        return False
+    return now - published <= timedelta(days=days)
 
 
 def source_label(source):
@@ -161,7 +214,7 @@ def select_items(items, max_items=MAX_ITEMS, max_per_tool=MAX_ITEMS_PER_TOOL):
     """
     eligible = sorted(
         (item for item in items if item.get("status") == "eligible"),
-        key=lambda item: item.get("published_at") or "",
+        key=sort_key,
         reverse=True,
     )
 
@@ -178,6 +231,37 @@ def select_items(items, max_items=MAX_ITEMS, max_per_tool=MAX_ITEMS_PER_TOOL):
             break
 
     return selected
+
+
+def select_hero(items, count=HERO_ITEMS):
+    """Pick the newest items, one per tool before repeating a tool.
+
+    Slicing the full list would show the same tool three times whenever
+    it publishes most often, which is the opposite of what the landing
+    page is meant to demonstrate.
+    """
+    ordered = sorted(items, key=sort_key, reverse=True)
+    hero = []
+    seen_tools = set()
+
+    for item in ordered:
+        tool = item.get("tool") or "Unknown"
+        if tool in seen_tools:
+            continue
+        seen_tools.add(tool)
+        hero.append(item)
+        if len(hero) >= count:
+            return hero
+
+    chosen = {id(item) for item in hero}
+    for item in ordered:
+        if id(item) in chosen:
+            continue
+        hero.append(item)
+        if len(hero) >= count:
+            break
+
+    return hero[:count]
 
 
 def render_item(item):
@@ -233,24 +317,34 @@ def render_hero_item(item):
     )
 
 
-def update_index(items):
-    """Inject live data into index.html.
+def render_index(items, now, had_eligible):
+    """Return the updated index.html text without writing it.
 
-    Every injection must succeed before the file is written, so the page
-    is never left half updated. Raises on a missing file or marker.
+    Every injection must succeed before the caller writes anything, so a
+    missing marker leaves both pages untouched instead of leaving
+    news.html new and index.html stale. Raises on a missing file or
+    marker.
     """
     if not INDEX_PATH.exists():
         raise FileNotFoundError(f"{INDEX_PATH} not found.")
 
     page = INDEX_PATH.read_text(encoding="utf-8")
     total = len(items)
-    hero = items[:HERO_ITEMS]
+    hero = select_hero(items)
 
-    updated = datetime.now(timezone.utc).strftime("%B %d, %Y")
-    page = inject(page, "updated", updated)
+    page = inject(page, "updated", format_long_date(now))
 
     if hero:
         preview = "\n".join(render_hero_item(item) for item in hero)
+    elif had_eligible:
+        preview = (
+            '        <div class="preview-item">\n'
+            '          <span class="tag">Observability News</span>\n'
+            '          <h4>No items in the last 30 days</h4>\n'
+            '          <p>The collection window covers the last 30 days. '
+            'Check back after the next run.</p>\n'
+            "        </div>"
+        )
     else:
         preview = (
             '        <div class="preview-item">\n'
@@ -267,6 +361,8 @@ def update_index(items):
             f'The latest {len(hero)} of {total} items · '
             '<a href="news.html">browse all the news</a>'
         )
+    elif had_eligible:
+        note = "No items in the last 30 days · check back after the next run."
     else:
         note = "No items collected yet · check back after the next run."
     page = inject(page, "preview-note", note)
@@ -274,24 +370,30 @@ def update_index(items):
     page = inject(
         page,
         "stats",
-        f"Tracking {total} announcements and releases · "
-        "updated daily from official feeds · "
+        f"Tracking {total} announcements and releases from the last "
+        f"{RECENCY_DAYS} days · updated daily from official feeds · "
         "collection runs once or twice a day · "
         "publication times vary · more sources coming.",
     )
 
-    INDEX_PATH.write_text(page, encoding="utf-8")
-    print(f"index.html updated: hero shows {len(hero)} latest items of {total}.")
+    return page, len(hero)
 
 
 def main():
     registry = json.loads(REGISTRY_PATH.read_text(encoding="utf-8"))
-    items = [i for i in registry.get("items", []) if i.get("status") == "eligible"]
-    items.sort(key=lambda i: i.get("published_at") or "", reverse=True)
+    now = datetime.now(timezone.utc)
+
+    eligible = [
+        item
+        for item in registry.get("items", [])
+        if item.get("status") == "eligible"
+    ]
+    items = [item for item in eligible if within_window(item, now)]
+    items.sort(key=sort_key, reverse=True)
 
     total = len(items)
     shown = select_items(items)
-    generated = datetime.now(timezone.utc).strftime("%B %d, %Y")
+    generated = format_long_date(now)
 
     if shown:
         items_html = "\n".join(render_item(item) for item in shown)
@@ -302,11 +404,14 @@ def main():
             else ""
         )
     else:
-        items_html = (
-            '      <p class="empty">No eligible items yet. '
-            'Collection runs once or twice a day. '
-            'Publication times vary.</p>'
+        empty_reason = (
+            "No items in the last 30 days. The collection window covers the "
+            "last 30 days. Check back after the next run."
+            if eligible
+            else "No eligible items yet. Collection runs once or twice a day. "
+            "Publication times vary."
         )
+        items_html = f'      <p class="empty">{empty_reason}</p>'
         limit_note = ""
 
     stats = f"{total} announcements and releases · Updated {generated}"
@@ -354,14 +459,19 @@ def main():
         '</html>\n'
     )
 
-    NEWS_PATH.write_text(head + stats_html + items_html + "\n" + tail, encoding="utf-8")
-    print(f"news.html written: {total} eligible items, {len(shown)} shown.")
+    news_html = head + stats_html + items_html + "\n" + tail
 
     try:
-        update_index(items)
-    except (ValueError, FileNotFoundError) as error:
-        print(f"ERROR: {error} index.html was not updated.", file=sys.stderr)
+        index_html, hero_count = render_index(items, now, bool(eligible))
+    except (ValueError, FileNotFoundError, OSError) as error:
+        print(f"ERROR: {error} Nothing was written.", file=sys.stderr)
         sys.exit(1)
+
+    NEWS_PATH.write_text(news_html, encoding="utf-8")
+    print(f"news.html written: {total} eligible items, {len(shown)} shown.")
+
+    INDEX_PATH.write_text(index_html, encoding="utf-8")
+    print(f"index.html updated: hero shows {hero_count} latest items of {total}.")
 
 
 if __name__ == "__main__":
