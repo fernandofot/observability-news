@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Observability News · Announcements and releases, curated daily</title>
-  <meta name="description" content="Product announcements and releases from observability tools, starting with Prometheus, OpenTelemetry, and Dynatrace, collected daily from official feeds. No noise, no promotional content.">
+  <meta name="description" content="Product announcements and releases from observability tools including Prometheus, OpenTelemetry, Dynatrace, Grafana, Elastic, and Datadog, collected daily from official feeds. No noise, no promotional content.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
@@ -20,7 +20,9 @@
       --radius: 14px;
     }
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: no-preference) {
+      html { scroll-behavior: smooth; }
+    }
     body {
       margin: 0;
       font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -106,7 +108,7 @@
     .preview-head strong { font-size: 15px; }
     .preview-head span { font-size: 13px; color: var(--muted); }
     .preview-item { padding: 16px 20px; border-bottom: 1px dashed var(--line); }
-    .preview-item:last-of-type { border-bottom: none; }
+    .preview-item:nth-last-of-type(2) { border-bottom: none; }
     .preview-item h4 { margin: 8px 0 4px; font-size: 15px; }
     .preview-item h4 a { color: inherit; text-decoration: none; }
     .preview-item h4 a:hover { color: var(--accent); }
@@ -206,8 +208,9 @@
         <h1>Observability news, minus the noise.</h1>
         <p class="lede">
           Product announcements and releases from official observability sources
-          (project blogs and release feeds), collected every day. Starting with
-          Prometheus, OpenTelemetry, and Dynatrace. No duplicates, no promotional content.
+          (project blogs and release feeds), collected every day. Prometheus,
+          OpenTelemetry, Dynatrace, Grafana, Elastic, and Datadog. No duplicates,
+          no promotional content.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="news.html">Read the latest news</a>
@@ -260,7 +263,7 @@
     <!-- Current coverage -->
     <section class="container section" id="coverage">
       <h2 class="section-title">What we cover today</h2>
-      <p class="section-sub">Coverage starts small and honest: every item comes from one of six official feeds across three ecosystems.</p>
+      <p class="section-sub">Every item comes from one of ten official feeds across seven tools, and the list grows as vendors publish.</p>
       <div class="badges">
         <span class="badge">Prometheus Blog</span>
         <span class="badge">Prometheus Releases</span>
@@ -268,6 +271,10 @@
         <span class="badge">OpenTelemetry Collector Releases</span>
         <span class="badge">Dynatrace Product News</span>
         <span class="badge">Dynatrace Release Notes</span>
+        <span class="badge">Grafana What's New</span>
+        <span class="badge">Grafana Blog</span>
+        <span class="badge">Elastic Blog</span>
+        <span class="badge">Datadog Blog</span>
       </div>
       <p class="badge-note"><!-- generated:stats:start -->Tracking 63 announcements and releases from the last 30 days · updated daily from official feeds · collection runs once or twice a day · publication times vary · more sources coming.<!-- generated:stats:end --></p>
     </section>
@@ -278,8 +285,8 @@
         <h2>The email digest is coming later</h2>
         <p class="sub">
           Subscriptions haven't opened yet. The daily collection pipeline is already running;
-          email delivery is the next milestone. Until then, this site collects nothing,
-          no email addresses, no tracking, no sign-up.
+          email delivery is the next milestone. Until then, this site stores no email addresses,
+          no tracking, no sign-up.
         </p>
         <div class="next-actions">
           <a class="btn btn-primary" href="news.html">Read the latest news</a>
