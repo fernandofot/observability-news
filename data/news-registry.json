@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_successful_run": "2026-11-10T09:53:05.434829+00:00",
+  "last_successful_run": "2026-11-10T19:47:37.621709+00:00",
   "items": [
     {
       "source": "prometheus_blog",
@@ -5487,6 +5487,90 @@
       "status": "excluded",
       "exclusion_reason": "component_release",
       "first_seen_at": "2026-11-10T09:53:05.434829+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "dynatrace_product_news",
+      "source_url": "https://www.dynatrace.com/news/category/product-news/feed/",
+      "source_item_id": "https://www.dynatrace.com/news/?p=75825",
+      "title": "OneAgent release notes version 1.349",
+      "published_at": "2026-11-09T09:57:04+00:00",
+      "tool": "Dynatrace",
+      "canonical_url": "https://www.dynatrace.com/news/blog/oneagent-release-notes-version-1-349",
+      "status": "excluded",
+      "exclusion_reason": "duplicate_cross_source",
+      "first_seen_at": "2026-11-10T19:47:37.621709+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "dynatrace_release_notes",
+      "source_url": "https://www.dynatrace.com/news/category/release-notes/feed/",
+      "source_item_id": "https://www.dynatrace.com/news/?p=75825",
+      "title": "OneAgent release notes version 1.349",
+      "published_at": "2026-11-09T09:57:04+00:00",
+      "tool": "Dynatrace",
+      "canonical_url": "https://www.dynatrace.com/news/blog/oneagent-release-notes-version-1-349",
+      "status": "eligible",
+      "exclusion_reason": null,
+      "first_seen_at": "2026-11-10T19:47:37.621709+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "elastic_blog",
+      "source_url": "https://www.elastic.co/blog/feed",
+      "source_item_id": "https://www.elastic.co/blog/elastic-stack-8-19-25-released",
+      "title": "Elastic Stack 8.19.25 released",
+      "published_at": "2026-11-10T00:00:00+00:00",
+      "tool": "Elastic",
+      "canonical_url": "https://www.elastic.co/blog/elastic-stack-8-19-25-released",
+      "status": "eligible",
+      "exclusion_reason": null,
+      "first_seen_at": "2026-11-10T19:47:37.621709+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "datadog_blog",
+      "source_url": "https://www.datadoghq.com/blog/index.xml",
+      "source_item_id": "https://www.datadoghq.com/blog/kubernetes-inference-workload-monitoring/",
+      "title": "Troubleshoot Kubernetes inference workloads with Datadog",
+      "published_at": "2026-11-10T00:00:00+00:00",
+      "tool": "Datadog",
+      "canonical_url": "https://www.datadoghq.com/blog/kubernetes-inference-workload-monitoring",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-11-10T19:47:37.621709+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "datadog_blog",
+      "source_url": "https://www.datadoghq.com/blog/index.xml",
+      "source_item_id": "https://www.datadoghq.com/blog/detect-respond-php2shell-datadog/",
+      "title": "Detect and respond to PHP2Shell with Datadog",
+      "published_at": "2026-11-10T00:00:00+00:00",
+      "tool": "Datadog",
+      "canonical_url": "https://www.datadoghq.com/blog/detect-respond-php2shell-datadog",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-11-10T19:47:37.621709+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "datadog_blog",
+      "source_url": "https://www.datadoghq.com/blog/index.xml",
+      "source_item_id": "https://www.datadoghq.com/blog/monitor-openai-codex-with-datadog/",
+      "title": "Monitor OpenAI Codex usage and impact with Datadog",
+      "published_at": "2026-11-10T00:00:00+00:00",
+      "tool": "Datadog",
+      "canonical_url": "https://www.datadoghq.com/blog/monitor-openai-codex-with-datadog",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-11-10T19:47:37.621709+00:00",
       "sent_at": null,
       "related_urls": []
     }
