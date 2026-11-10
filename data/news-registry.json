@@ -1021,7 +1021,7 @@
       "status": "eligible",
       "exclusion_reason": null,
       "first_seen_at": "2026-10-20T11:16:05.849778+00:00",
-      "sent_at": null,
+      "sent_at": "2026-11-10T10:29:43.184223+00:00",
       "related_urls": []
     },
     {
@@ -1427,7 +1427,7 @@
       "status": "eligible",
       "exclusion_reason": null,
       "first_seen_at": "2026-10-21T13:37:51.851571+00:00",
-      "sent_at": null,
+      "sent_at": "2026-11-10T10:29:43.184223+00:00",
       "related_urls": []
     },
     {
@@ -1455,7 +1455,7 @@
       "status": "eligible",
       "exclusion_reason": null,
       "first_seen_at": "2026-10-21T13:37:51.851571+00:00",
-      "sent_at": null,
+      "sent_at": "2026-11-10T10:29:43.184223+00:00",
       "related_urls": []
     },
     {
@@ -1679,7 +1679,7 @@
       "status": "eligible",
       "exclusion_reason": null,
       "first_seen_at": "2026-10-23T07:43:51.711098+00:00",
-      "sent_at": null,
+      "sent_at": "2026-11-10T10:29:43.184223+00:00",
       "related_urls": []
     },
     {
@@ -2729,7 +2729,7 @@
       "status": "eligible",
       "exclusion_reason": null,
       "first_seen_at": "2026-10-28T14:58:51.679153+00:00",
-      "sent_at": null,
+      "sent_at": "2026-11-10T10:29:43.184223+00:00",
       "related_urls": []
     },
     {
@@ -2967,7 +2967,7 @@
       "status": "eligible",
       "exclusion_reason": null,
       "first_seen_at": "2026-10-30T19:58:11.335595+00:00",
-      "sent_at": null,
+      "sent_at": "2026-11-10T10:29:43.184223+00:00",
       "related_urls": []
     },
     {
@@ -3513,7 +3513,7 @@
       "status": "eligible",
       "exclusion_reason": null,
       "first_seen_at": "2026-10-30T19:58:11.335595+00:00",
-      "sent_at": null,
+      "sent_at": "2026-11-10T10:29:43.184223+00:00",
       "related_urls": []
     },
     {
@@ -4395,7 +4395,7 @@
       "status": "eligible",
       "exclusion_reason": null,
       "first_seen_at": "2026-11-02T21:44:14.941527+00:00",
-      "sent_at": null,
+      "sent_at": "2026-11-10T10:29:43.184223+00:00",
       "related_urls": []
     },
     {
@@ -4633,7 +4633,7 @@
       "status": "eligible",
       "exclusion_reason": null,
       "first_seen_at": "2026-11-03T19:31:05.547642+00:00",
-      "sent_at": null,
+      "sent_at": "2026-11-10T10:29:43.184223+00:00",
       "related_urls": []
     },
     {
@@ -4703,7 +4703,7 @@
       "status": "eligible",
       "exclusion_reason": null,
       "first_seen_at": "2026-11-04T09:16:57.511106+00:00",
-      "sent_at": null,
+      "sent_at": "2026-11-10T10:29:43.184223+00:00",
       "related_urls": []
     },
     {
@@ -5333,7 +5333,7 @@
       "status": "eligible",
       "exclusion_reason": null,
       "first_seen_at": "2026-11-09T22:25:21.920316+00:00",
-      "sent_at": null,
+      "sent_at": "2026-11-10T10:29:43.184223+00:00",
       "related_urls": []
     },
     {
@@ -5347,7 +5347,7 @@
       "status": "eligible",
       "exclusion_reason": null,
       "first_seen_at": "2026-11-09T22:25:21.920316+00:00",
-      "sent_at": null,
+      "sent_at": "2026-11-10T10:29:43.184223+00:00",
       "related_urls": []
     },
     {
@@ -5361,7 +5361,7 @@
       "status": "eligible",
       "exclusion_reason": null,
       "first_seen_at": "2026-11-09T22:25:21.920316+00:00",
-      "sent_at": null,
+      "sent_at": "2026-11-10T10:29:43.184223+00:00",
       "related_urls": []
     },
     {
