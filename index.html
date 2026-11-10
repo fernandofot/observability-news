@@ -149,7 +149,7 @@
     }
     .badge-note { margin: 16px 0 0; font-size: 14px; color: var(--muted); }
 
-    /* Next milestone (email digest) */
+    /* Email digest */
     .next-inner {
       background: #0f172a; color: #f1f5f9;
       border-radius: 24px; padding: 48px;
@@ -157,6 +157,11 @@
     }
     .next h2 { font-family: 'Newsreader', Georgia, serif; font-size: 30px; margin: 0 0 8px; font-weight: 600; }
     .next .sub { color: #94a3b8; margin: 0 0 28px; font-size: 15px; }
+    .next .sub a {
+      color: #bfdbfe; font-weight: 600;
+      text-decoration: underline; text-underline-offset: 3px;
+    }
+    .next .sub + .sub { margin-top: -16px; }
     .next-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
     /* Footer */
@@ -279,17 +284,24 @@
       <p class="badge-note"><!-- generated:stats:start -->Tracking 66 announcements and releases from the last 30 days · updated daily from official feeds · collection runs once or twice a day · publication times vary · more sources coming.<!-- generated:stats:end --></p>
     </section>
 
-    <!-- Next milestone -->
+    <!-- Email digest -->
     <section class="container section next" id="email">
       <div class="next-inner">
-        <h2>The email digest is coming later</h2>
+        <h2>The digest, in your inbox</h2>
         <p class="sub">
-          Subscriptions haven't opened yet. The daily collection pipeline is already running;
-          email delivery is the next milestone. Until then, this site stores no email addresses,
-          no tracking, no sign-up.
+          The same curation, straight to your inbox. After each collection window, up to twice
+          a day, the digest gathers the newest announcements and releases from the official
+          sources. Every title names its tool, every item links to the original announcement,
+          there is no tracking, and every email carries a one-click unsubscribe.
+        </p>
+        <p class="sub">
+          To start receiving it, send a short email to
+          <a href="mailto:observabilitynews@gmail.com?subject=subscribe">observabilitynews@gmail.com</a>
+          with the subject line "subscribe".
         </p>
         <div class="next-actions">
-          <a class="btn btn-primary" href="news.html">Read the latest news</a>
+          <a class="btn btn-primary" href="mailto:observabilitynews@gmail.com?subject=subscribe">Subscribe by email</a>
+          <a class="btn btn-ghost" href="news.html">Read the latest news</a>
         </div>
       </div>
     </section>
