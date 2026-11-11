@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_successful_run": "2026-11-11T09:28:04.845053+00:00",
+  "last_successful_run": "2026-11-11T19:39:01.608236+00:00",
   "items": [
     {
       "source": "prometheus_blog",
@@ -5655,6 +5655,62 @@
       "status": "excluded",
       "exclusion_reason": "not_a_product_announcement",
       "first_seen_at": "2026-11-11T09:28:04.845053+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "opentelemetry_blog",
+      "source_url": "https://opentelemetry.io/blog/index.xml",
+      "source_item_id": "https://opentelemetry.io/blog/2026/otel-unplugged-fosdem-2027/",
+      "title": "OTel Unplugged EU at FOSDEM 2027",
+      "published_at": "2026-11-11T18:00:16+00:00",
+      "tool": "OpenTelemetry",
+      "canonical_url": "https://opentelemetry.io/blog/2026/otel-unplugged-fosdem-2027",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-11-11T19:39:01.608236+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "opentelemetry_blog",
+      "source_url": "https://opentelemetry.io/blog/index.xml",
+      "source_item_id": "https://opentelemetry.io/blog/2026/collector-batching-migration/",
+      "title": "Deprecating the Collector Batch Processor",
+      "published_at": "2026-11-11T09:57:51+00:00",
+      "tool": "OpenTelemetry",
+      "canonical_url": "https://opentelemetry.io/blog/2026/collector-batching-migration",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-11-11T19:39:01.608236+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "dynatrace_product_news",
+      "source_url": "https://www.dynatrace.com/news/category/product-news/feed/",
+      "source_item_id": "https://www.dynatrace.com/news/?p=75838",
+      "title": "The SRE Agent is generally available: investigation and triage start the moment a problem is detected",
+      "published_at": "2026-11-11T18:22:08+00:00",
+      "tool": "Dynatrace",
+      "canonical_url": "https://www.dynatrace.com/news/blog/the-sre-agent-is-generally-available-investigation-and-triage-start-the-moment-a-problem-is-detected",
+      "status": "eligible",
+      "exclusion_reason": null,
+      "first_seen_at": "2026-11-11T19:39:01.608236+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "datadog_blog",
+      "source_url": "https://www.datadoghq.com/blog/index.xml",
+      "source_item_id": "https://www.datadoghq.com/blog/aws-account-management/",
+      "title": "Where to run AWS workloads and how to limit their access",
+      "published_at": "2026-11-11T00:00:00+00:00",
+      "tool": "Datadog",
+      "canonical_url": "https://www.datadoghq.com/blog/aws-account-management",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-11-11T19:39:01.608236+00:00",
       "sent_at": null,
       "related_urls": []
     }
