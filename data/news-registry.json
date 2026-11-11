@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_successful_run": "2026-11-10T19:47:37.621709+00:00",
+  "last_successful_run": "2026-11-11T09:28:04.845053+00:00",
   "items": [
     {
       "source": "prometheus_blog",
@@ -5571,6 +5571,90 @@
       "status": "excluded",
       "exclusion_reason": "not_a_product_announcement",
       "first_seen_at": "2026-11-10T19:47:37.621709+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "opentelemetry_collector_releases",
+      "source_url": "https://github.com/open-telemetry/opentelemetry-collector-releases/releases.atom",
+      "source_item_id": "tag:github.com,2008:Repository/400253676/v0.166.0-nightly.202611110209",
+      "title": "v0.166.0-nightly.202611110209",
+      "published_at": "2026-11-11T02:09:45+00:00",
+      "tool": "OpenTelemetry Collector",
+      "canonical_url": "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/tag/v0.166.0-nightly.202611110209",
+      "status": "excluded",
+      "exclusion_reason": "prerelease_or_nightly",
+      "first_seen_at": "2026-11-11T09:28:04.845053+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "opentelemetry_collector_releases",
+      "source_url": "https://github.com/open-telemetry/opentelemetry-collector-releases/releases.atom",
+      "source_item_id": "tag:github.com,2008:Repository/400253676/cmd/opampsupervisor/v0.166.0-nightly.202611110209",
+      "title": "cmd/opampsupervisor/v0.166.0-nightly.202611110209",
+      "published_at": "2026-11-11T02:09:56+00:00",
+      "tool": "OpenTelemetry Collector",
+      "canonical_url": "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/tag/cmd%2Fopampsupervisor%2Fv0.166.0-nightly.202611110209",
+      "status": "excluded",
+      "exclusion_reason": "component_release",
+      "first_seen_at": "2026-11-11T09:28:04.845053+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "opentelemetry_collector_releases",
+      "source_url": "https://github.com/open-telemetry/opentelemetry-collector-releases/releases.atom",
+      "source_item_id": "tag:github.com,2008:Repository/400253676/cmd/builder/v0.166.0-nightly.202611110209",
+      "title": "cmd/builder/v0.166.0-nightly.202611110209",
+      "published_at": "2026-11-11T02:09:54+00:00",
+      "tool": "OpenTelemetry Collector",
+      "canonical_url": "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/tag/cmd%2Fbuilder%2Fv0.166.0-nightly.202611110209",
+      "status": "excluded",
+      "exclusion_reason": "component_release",
+      "first_seen_at": "2026-11-11T09:28:04.845053+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "grafana_whats_new",
+      "source_url": "https://grafana.com/whats-new/index.xml",
+      "source_item_id": "https://grafana.com/whats-new/2026-11-10-synthetic-monitoring-connect-checks-to-frontend-applications-in-the-knowledge-graph",
+      "title": "Connect Synthetic Monitoring checks to your frontend applications",
+      "published_at": "2026-11-09T14:15:00+00:00",
+      "tool": "Grafana",
+      "canonical_url": "https://grafana.com/whats-new/2026-11-09-connect-synthetic-monitoring-checks-to-your-frontend-applications",
+      "status": "eligible",
+      "exclusion_reason": null,
+      "first_seen_at": "2026-11-11T09:28:04.845053+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "datadog_blog",
+      "source_url": "https://www.datadoghq.com/blog/index.xml",
+      "source_item_id": "https://www.datadoghq.com/blog/monitor-oci-government-cloud-datadog/",
+      "title": "Monitor OCI workloads in US government clouds with Datadog",
+      "published_at": "2026-11-10T00:00:00+00:00",
+      "tool": "Datadog",
+      "canonical_url": "https://www.datadoghq.com/blog/monitor-oci-government-cloud-datadog",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-11-11T09:28:04.845053+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "datadog_blog",
+      "source_url": "https://www.datadoghq.com/blog/index.xml",
+      "source_item_id": "https://www.datadoghq.com/blog/end-user-device-monitoring/",
+      "title": "Monitor and troubleshoot employee devices with Datadog End User Device Monitoring",
+      "published_at": "2026-11-10T00:00:00+00:00",
+      "tool": "Datadog",
+      "canonical_url": "https://www.datadoghq.com/blog/end-user-device-monitoring",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-11-11T09:28:04.845053+00:00",
       "sent_at": null,
       "related_urls": []
     }
