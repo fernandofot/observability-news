@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_successful_run": "2026-11-12T09:51:59.575511+00:00",
+  "last_successful_run": "2026-11-12T19:59:00.824269+00:00",
   "items": [
     {
       "source": "prometheus_blog",
@@ -5753,6 +5753,62 @@
       "status": "excluded",
       "exclusion_reason": "component_release",
       "first_seen_at": "2026-11-12T09:51:59.575511+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "opentelemetry_blog",
+      "source_url": "https://opentelemetry.io/blog/index.xml",
+      "source_item_id": "https://opentelemetry.io/blog/2026/agent-harness-genai-instrumentation/",
+      "title": "Building an Agent Harness for OTel Instrumentation with GenAI Semantic Conventions and Weaver",
+      "published_at": "2026-11-12T13:55:25+00:00",
+      "tool": "OpenTelemetry",
+      "canonical_url": "https://opentelemetry.io/blog/2026/agent-harness-genai-instrumentation",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-11-12T19:59:00.824269+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "dynatrace_product_news",
+      "source_url": "https://www.dynatrace.com/news/category/product-news/feed/",
+      "source_item_id": "https://www.dynatrace.com/news/?p=75869",
+      "title": "From alerts to answers: The new Dynatrace Event Connector for ServiceNow ITOM",
+      "published_at": "2026-11-12T18:29:45+00:00",
+      "tool": "Dynatrace",
+      "canonical_url": "https://www.dynatrace.com/news/blog/from-alerts-to-answers-the-new-dynatrace-event-connector-for-servicenow-itom",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-11-12T19:59:00.824269+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "dynatrace_product_news",
+      "source_url": "https://www.dynatrace.com/news/category/product-news/feed/",
+      "source_item_id": "https://www.dynatrace.com/news/?p=75864",
+      "title": "Get more from OpenTelemetry: From connected data to faster root cause analysis",
+      "published_at": "2026-11-12T17:31:07+00:00",
+      "tool": "Dynatrace",
+      "canonical_url": "https://www.dynatrace.com/news/blog/get-more-from-opentelemetry-from-connected-data-to-faster-root-cause-analysis",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-11-12T19:59:00.824269+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "grafana_blog",
+      "source_url": "https://grafana.com/blog/index.xml",
+      "source_item_id": "https://grafana.com/blog/an-early-look-at-the-grafana-ui-refresh-building-a-clearer-more-consistent-user-experience/",
+      "title": "An early look at the Grafana UI refresh: Building a clearer, more consistent user experience",
+      "published_at": "2026-11-12T17:01:40+00:00",
+      "tool": "Grafana",
+      "canonical_url": "https://grafana.com/blog/an-early-look-at-the-grafana-ui-refresh-building-a-clearer-more-consistent-user-experience",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-11-12T19:59:00.824269+00:00",
       "sent_at": null,
       "related_urls": []
     }
