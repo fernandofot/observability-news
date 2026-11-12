@@ -210,7 +210,7 @@ def build_message(items, now, recipient):
     message["Subject"] = f"Observability News · {len(items)} new items"
     message["Date"] = formatdate(localtime=False)
     message["Message-ID"] = make_msgid()
-    message["List-Unsubscribe"] = f"<mailto:{UNSUBSCRIBE_MAILTO}?subject=unsubscribe>"
+    message["List-Unsubscribe"] = f"<​mailto:{UNSUBSCRIBE_MAILTO}?subject=unsubscribe>"
     message.set_content(render_text(items, now))
     message.add_alternative(render_html(items, now), subtype="html")
     return message
@@ -241,14 +241,18 @@ def deliver_smtp(pairs):
     user = os.environ["SMTP_USER"]
     password = os.environ["SMTP_PASSWORD"]
     failures = []
-    with smtplib.SMTP(host, port, timeout=30) as server:
-        server.starttls()
-        server.login(user, password)
-        for message, recipient in pairs:
-            try:
-                server.send_message(message, from_addr=message["From"], to_addrs=[recipient])
-            except smtplib.SMTPException as exc:
-                failures.append((recipient, str(exc)))
+    try:
+        with smtplib.SMTP(host, port, timeout=30) as server:
+            server.starttls()
+            server.login(user, password)
+            for message, recipient in pairs:
+                try:
+                    server.send_message(message, from_addr=message["From"], to_addrs=[recipient])
+                except (smtplib.SMTPException, OSError) as exc:
+                    failures.append((recipient, str(exc)))
+    except (smtplib.SMTPException, OSError) as exc:
+        # The connection or the login failed outright, so every message failed.
+        failures = [(recipient, str(exc)) for _, recipient in pairs]
     return failures
 
 
