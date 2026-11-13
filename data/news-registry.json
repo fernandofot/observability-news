@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_successful_run": "2026-11-13T09:33:51.968611+00:00",
+  "last_successful_run": "2026-11-13T19:46:50.109482+00:00",
   "items": [
     {
       "source": "prometheus_blog",
@@ -5851,6 +5851,34 @@
       "status": "excluded",
       "exclusion_reason": "component_release",
       "first_seen_at": "2026-11-13T09:33:51.968611+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "grafana_blog",
+      "source_url": "https://grafana.com/blog/index.xml",
+      "source_item_id": "https://grafana.com/blog/whats-new-in-pyroscope-profile-more-of-your-workflows-troubleshoot-with-ai-agents-and-more/",
+      "title": "What's new in Pyroscope: profile more of your workflows, troubleshoot with AI agents, and more",
+      "published_at": "2026-11-13T17:14:29+00:00",
+      "tool": "Grafana",
+      "canonical_url": "https://grafana.com/blog/whats-new-in-pyroscope-profile-more-of-your-workflows-troubleshoot-with-ai-agents-and-more",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-11-13T19:46:50.109482+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "datadog_blog",
+      "source_url": "https://www.datadoghq.com/blog/index.xml",
+      "source_item_id": "https://www.datadoghq.com/blog/cloud-siem-investigate-user-entity-risks/",
+      "title": "Investigate the person behind the risk with Cloud SIEM",
+      "published_at": "2026-11-13T00:00:00+00:00",
+      "tool": "Datadog",
+      "canonical_url": "https://www.datadoghq.com/blog/cloud-siem-investigate-user-entity-risks",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-11-13T19:46:50.109482+00:00",
       "sent_at": null,
       "related_urls": []
     }
