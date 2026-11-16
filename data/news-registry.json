@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_successful_run": "2026-11-16T09:47:11.687186+00:00",
+  "last_successful_run": "2026-11-16T22:10:07.064878+00:00",
   "items": [
     {
       "source": "prometheus_blog",
@@ -6005,6 +6005,76 @@
       "status": "excluded",
       "exclusion_reason": "component_release",
       "first_seen_at": "2026-11-16T09:47:11.687186+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "opentelemetry_blog",
+      "source_url": "https://opentelemetry.io/blog/index.xml",
+      "source_item_id": "https://opentelemetry.io/blog/2026/otel-community-awards/",
+      "title": "Announcing the 2026 OpenTelemetry Community Award Winners",
+      "published_at": "2026-11-16T19:30:06+00:00",
+      "tool": "OpenTelemetry",
+      "canonical_url": "https://opentelemetry.io/blog/2026/otel-community-awards",
+      "status": "excluded",
+      "exclusion_reason": "community_content",
+      "first_seen_at": "2026-11-16T22:10:07.064878+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "grafana_whats_new",
+      "source_url": "https://grafana.com/whats-new/index.xml",
+      "source_item_id": "https://grafana.com/whats-new/2026-11-16-hold-or-reroute-alerts-outside-team-hours-in-grafana-irm",
+      "title": "Hold or reroute alerts outside team hours in Grafana IRM",
+      "published_at": "2026-11-16T19:00:00+00:00",
+      "tool": "Grafana",
+      "canonical_url": "https://grafana.com/whats-new/2026-11-16-hold-or-reroute-alerts-outside-team-hours-in-grafana-irm",
+      "status": "eligible",
+      "exclusion_reason": null,
+      "first_seen_at": "2026-11-16T22:10:07.064878+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "grafana_whats_new",
+      "source_url": "https://grafana.com/whats-new/index.xml",
+      "source_item_id": "https://grafana.com/whats-new/2026-11-16-scale-synthetic-monitoring-private-probes-beyond-a-single-agent",
+      "title": "Scale Synthetic Monitoring private probes beyond a single agent",
+      "published_at": "2026-11-16T12:00:00+00:00",
+      "tool": "Grafana",
+      "canonical_url": "https://grafana.com/whats-new/2026-11-16-scale-synthetic-monitoring-private-probes-beyond-a-single-agent",
+      "status": "eligible",
+      "exclusion_reason": null,
+      "first_seen_at": "2026-11-16T22:10:07.064878+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "datadog_blog",
+      "source_url": "https://www.datadoghq.com/blog/index.xml",
+      "source_item_id": "https://www.datadoghq.com/blog/check-ec2-workloads-imdsv2-readiness/",
+      "title": "How to check if your EC2 workloads are ready for IMDSv2",
+      "published_at": "2026-11-16T00:00:00+00:00",
+      "tool": "Datadog",
+      "canonical_url": "https://www.datadoghq.com/blog/check-ec2-workloads-imdsv2-readiness",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-11-16T22:10:07.064878+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "datadog_blog",
+      "source_url": "https://www.datadoghq.com/blog/index.xml",
+      "source_item_id": "https://www.datadoghq.com/blog/auto-processing-log-pipelines/",
+      "title": "Get useful logs from any source with Datadog Auto-Processing",
+      "published_at": "2026-11-16T00:00:00+00:00",
+      "tool": "Datadog",
+      "canonical_url": "https://www.datadoghq.com/blog/auto-processing-log-pipelines",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-11-16T22:10:07.064878+00:00",
       "sent_at": null,
       "related_urls": []
     }
