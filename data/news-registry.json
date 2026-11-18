@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_successful_run": "2026-11-18T10:12:24.764909+00:00",
+  "last_successful_run": "2026-11-18T20:36:49.464857+00:00",
   "items": [
     {
       "source": "prometheus_blog",
@@ -6299,6 +6299,76 @@
       "status": "excluded",
       "exclusion_reason": "component_release",
       "first_seen_at": "2026-11-18T10:12:24.764909+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "grafana_blog",
+      "source_url": "https://grafana.com/blog/index.xml",
+      "source_item_id": "https://grafana.com/blog/observabilitycon-on-the-road-new-sessions-coming-to-you-in-2027/",
+      "title": "ObservabilityCON on the Road: New sessions coming to you in 2027",
+      "published_at": "2026-11-18T17:48:45+00:00",
+      "tool": "Grafana",
+      "canonical_url": "https://grafana.com/blog/observabilitycon-on-the-road-new-sessions-coming-to-you-in-2027",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-11-18T20:36:49.464857+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "elastic_blog",
+      "source_url": "https://www.elastic.co/blog/feed",
+      "source_item_id": "https://www.elastic.co/blog/elastic-cloud-serverless-now-available-azure-toronto",
+      "title": "Celebrating Microsoft Ignite with Azure region expansion in Toronto",
+      "published_at": "2026-11-18T00:00:00+00:00",
+      "tool": "Elastic",
+      "canonical_url": "https://www.elastic.co/blog/elastic-cloud-serverless-now-available-azure-toronto",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-11-18T20:36:49.464857+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "datadog_blog",
+      "source_url": "https://www.datadoghq.com/blog/index.xml",
+      "source_item_id": "https://www.datadoghq.com/blog/datadog-byoc-minio-aistor/",
+      "title": "Bring Datadog BYOC to your on-premises data with MinIO AIStor",
+      "published_at": "2026-11-18T00:00:00+00:00",
+      "tool": "Datadog",
+      "canonical_url": "https://www.datadoghq.com/blog/datadog-byoc-minio-aistor",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-11-18T20:36:49.464857+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "datadog_blog",
+      "source_url": "https://www.datadoghq.com/blog/index.xml",
+      "source_item_id": "https://www.datadoghq.com/blog/datadogs-agentic-vulnerability-hunting-system/",
+      "title": "How we built Datadog’s agentic vulnerability hunting system",
+      "published_at": "2026-11-18T00:00:00+00:00",
+      "tool": "Datadog",
+      "canonical_url": "https://www.datadoghq.com/blog/datadogs-agentic-vulnerability-hunting-system",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-11-18T20:36:49.464857+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "datadog_blog",
+      "source_url": "https://www.datadoghq.com/blog/index.xml",
+      "source_item_id": "https://www.datadoghq.com/blog/fine-tuning-patterns-baseten/",
+      "title": "How we fine-tuned a faster model for Patterns on Baseten",
+      "published_at": "2026-11-18T00:00:00+00:00",
+      "tool": "Datadog",
+      "canonical_url": "https://www.datadoghq.com/blog/fine-tuning-patterns-baseten",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-11-18T20:36:49.464857+00:00",
       "sent_at": null,
       "related_urls": []
     }
