@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_successful_run": "2026-11-18T20:36:49.464857+00:00",
+  "last_successful_run": "2026-11-19T10:23:42.756980+00:00",
   "items": [
     {
       "source": "prometheus_blog",
@@ -6369,6 +6369,76 @@
       "status": "excluded",
       "exclusion_reason": "not_a_product_announcement",
       "first_seen_at": "2026-11-18T20:36:49.464857+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "opentelemetry_collector_releases",
+      "source_url": "https://github.com/open-telemetry/opentelemetry-collector-releases/releases.atom",
+      "source_item_id": "tag:github.com,2008:Repository/400253676/v0.166.0-nightly.202611190211",
+      "title": "v0.166.0-nightly.202611190211",
+      "published_at": "2026-11-19T02:11:07+00:00",
+      "tool": "OpenTelemetry Collector",
+      "canonical_url": "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/tag/v0.166.0-nightly.202611190211",
+      "status": "excluded",
+      "exclusion_reason": "prerelease_or_nightly",
+      "first_seen_at": "2026-11-19T10:23:42.756980+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "opentelemetry_collector_releases",
+      "source_url": "https://github.com/open-telemetry/opentelemetry-collector-releases/releases.atom",
+      "source_item_id": "tag:github.com,2008:Repository/400253676/cmd/opampsupervisor/v0.166.0-nightly.202611190211",
+      "title": "cmd/opampsupervisor/v0.166.0-nightly.202611190211",
+      "published_at": "2026-11-19T02:11:19+00:00",
+      "tool": "OpenTelemetry Collector",
+      "canonical_url": "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/tag/cmd%2Fopampsupervisor%2Fv0.166.0-nightly.202611190211",
+      "status": "excluded",
+      "exclusion_reason": "component_release",
+      "first_seen_at": "2026-11-19T10:23:42.756980+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "opentelemetry_collector_releases",
+      "source_url": "https://github.com/open-telemetry/opentelemetry-collector-releases/releases.atom",
+      "source_item_id": "tag:github.com,2008:Repository/400253676/cmd/builder/v0.166.0-nightly.202611190211",
+      "title": "cmd/builder/v0.166.0-nightly.202611190211",
+      "published_at": "2026-11-19T02:11:19+00:00",
+      "tool": "OpenTelemetry Collector",
+      "canonical_url": "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/tag/cmd%2Fbuilder%2Fv0.166.0-nightly.202611190211",
+      "status": "excluded",
+      "exclusion_reason": "component_release",
+      "first_seen_at": "2026-11-19T10:23:42.756980+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "grafana_whats_new",
+      "source_url": "https://grafana.com/whats-new/index.xml",
+      "source_item_id": "https://grafana.com/whats-new/2026-11-18-auto-fit-dashboard-panels-to-their-content",
+      "title": "Auto fit dashboard panels to their content",
+      "published_at": "2026-11-19T07:00:00+00:00",
+      "tool": "Grafana",
+      "canonical_url": "https://grafana.com/whats-new/2026-11-19-auto-fit-dashboard-panels-to-their-content",
+      "status": "eligible",
+      "exclusion_reason": null,
+      "first_seen_at": "2026-11-19T10:23:42.756980+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "elastic_blog",
+      "source_url": "https://www.elastic.co/blog/feed",
+      "source_item_id": "https://www.elastic.co/blog/java4shell-remote-code-execution-rce-vulnerability",
+      "title": "Java4Shell Remote Code Execution (RCE) Vulnerability - CVE-2026-114938",
+      "published_at": "2026-11-18T00:00:00+00:00",
+      "tool": "Elastic",
+      "canonical_url": "https://www.elastic.co/blog/java4shell-remote-code-execution-rce-vulnerability",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-11-19T10:23:42.756980+00:00",
       "sent_at": null,
       "related_urls": []
     }
