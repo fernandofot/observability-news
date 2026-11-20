@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_successful_run": "2026-11-20T10:03:32.825571+00:00",
+  "last_successful_run": "2026-11-20T20:26:07.756255+00:00",
   "items": [
     {
       "source": "prometheus_blog",
@@ -6607,6 +6607,76 @@
       "status": "excluded",
       "exclusion_reason": "not_a_product_announcement",
       "first_seen_at": "2026-11-20T10:03:32.825571+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "grafana_blog",
+      "source_url": "https://grafana.com/blog/index.xml",
+      "source_item_id": "https://grafana.com/blog/from-ai-agents-to-fishing-dashboards-the-latest-stories-from-unprompted/",
+      "title": "From AI agents to fishing dashboards: The latest stories from Unprompted, the Grafana Labs engineering blog",
+      "published_at": "2026-11-20T15:07:25+00:00",
+      "tool": "Grafana",
+      "canonical_url": "https://grafana.com/blog/from-ai-agents-to-fishing-dashboards-the-latest-stories-from-unprompted",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-11-20T20:26:07.756255+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "datadog_blog",
+      "source_url": "https://www.datadoghq.com/blog/index.xml",
+      "source_item_id": "https://www.datadoghq.com/blog/observability-pipelines-mcp-server-ai-agents/",
+      "title": "Build and troubleshoot Observability Pipelines with AI agents",
+      "published_at": "2026-11-20T00:00:00+00:00",
+      "tool": "Datadog",
+      "canonical_url": "https://www.datadoghq.com/blog/observability-pipelines-mcp-server-ai-agents",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-11-20T20:26:07.756255+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "datadog_blog",
+      "source_url": "https://www.datadoghq.com/blog/index.xml",
+      "source_item_id": "https://www.datadoghq.com/blog/agentic-onboarding/",
+      "title": "Let your AI agent set up Datadog with Agentic Onboarding",
+      "published_at": "2026-11-20T00:00:00+00:00",
+      "tool": "Datadog",
+      "canonical_url": "https://www.datadoghq.com/blog/agentic-onboarding",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-11-20T20:26:07.756255+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "datadog_blog",
+      "source_url": "https://www.datadoghq.com/blog/index.xml",
+      "source_item_id": "https://www.datadoghq.com/blog/agentic-reporting-product-analytics/",
+      "title": "Let your product dashboards report to you with the Dashboard Reporter Agent",
+      "published_at": "2026-11-20T00:00:00+00:00",
+      "tool": "Datadog",
+      "canonical_url": "https://www.datadoghq.com/blog/agentic-reporting-product-analytics",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-11-20T20:26:07.756255+00:00",
+      "sent_at": null,
+      "related_urls": []
+    },
+    {
+      "source": "datadog_blog",
+      "source_url": "https://www.datadoghq.com/blog/index.xml",
+      "source_item_id": "https://www.datadoghq.com/blog/data-security-posture-management/",
+      "title": "Map sensitive data with Datadog Data Security Posture Management",
+      "published_at": "2026-11-20T00:00:00+00:00",
+      "tool": "Datadog",
+      "canonical_url": "https://www.datadoghq.com/blog/data-security-posture-management",
+      "status": "excluded",
+      "exclusion_reason": "not_a_product_announcement",
+      "first_seen_at": "2026-11-20T20:26:07.756255+00:00",
       "sent_at": null,
       "related_urls": []
     }
